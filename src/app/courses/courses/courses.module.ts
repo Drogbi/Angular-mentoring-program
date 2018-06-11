@@ -8,6 +8,7 @@ import { CourseService } from '../shared/course.service';
 
 @NgModule({
     imports: [CommonModule],
+    exports: [CourseComponent, CoursesListComponent, CoursesToolboxComponent],
     declarations: [CourseComponent, CoursesListComponent, CoursesToolboxComponent],
     providers: [CourseService],
 })
