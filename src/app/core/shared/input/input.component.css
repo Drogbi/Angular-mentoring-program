@@ -1,0 +1,17 @@
+.input {
+    display: flex;
+    padding: 0;
+    width: 100%;
+}
+
+.input_s {
+    height: 24px;
+}
+
+.input_m {
+    height: 30px;
+}
+
+.input_l {
+    height: 36px;
+}

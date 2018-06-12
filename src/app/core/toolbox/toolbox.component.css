@@ -1,0 +1,28 @@
+.toolbox {
+    display: flex;
+    height: 60px;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.toolbox__search {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+@media (max-width: 395px)  {
+    .toolbox > * {
+        flex-grow: 1;
+    }
+
+    .toolbox__search-input {
+        flex-grow: 2;
+    }
+    .toolbox__search-button {
+        flex-grow: 1;
+    }
+    .toolbox__add-course-button {
+        margin-top: 20px;
+    }
+}

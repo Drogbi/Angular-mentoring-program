@@ -1,0 +1,28 @@
+.button {
+    display: flex;
+    background: none;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid #141414;
+    width: 100%;
+}
+
+.button:focus {
+    background-color: #E4E4E4;
+    outline: none;
+}
+
+.button:hover {
+    background-color: #E4E4E4;
+}
+
+.button_s {
+    height: 24px;
+}
+
+.button_m {
+    height: 30px;
+}
+
+.button_l {
+    height: 36px;
+}

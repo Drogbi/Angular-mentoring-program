@@ -5,6 +5,8 @@ import { CoursesModule } from './courses/courses/courses.module';
 
 import { AppComponent } from './app.component';
 
+
+
 @NgModule({
     declarations: [AppComponent],
     imports: [BrowserModule, CoreModule, CoursesModule],
