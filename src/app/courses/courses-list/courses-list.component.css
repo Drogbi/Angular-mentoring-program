@@ -1,0 +1,9 @@
+.courses-list {
+    padding: 20px;
+}
+
+::ng-deep .course {
+    margin-bottom: 20px;
+}
+
+

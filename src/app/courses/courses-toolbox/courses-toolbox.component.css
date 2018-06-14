@@ -1,0 +1,42 @@
+.courses-toolbox {
+    display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.courses-toolbox__search {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 30%;
+}
+
+.courses-toolbox__search-input {
+    width: 100%;
+}
+
+.courses-toolbox__search-button {
+    margin-left: -1px;
+}
+
+@media (max-width: 382px)  {
+    .courses-toolbox > * {
+        flex-grow: 1;
+    }
+
+    .courses-toolbox__search-input {
+        flex-grow: 2;
+    }
+    .courses-toolbox__search-button {
+        flex-grow: 1;
+    }
+    .courses-toolbox__add-course-button {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .courses-toolbox__search {
+        width: auto;
+    }
+}

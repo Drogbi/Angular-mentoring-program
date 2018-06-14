@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Course } from '../shared/course.model';
+import { CourseService } from '../shared/course.service';
 
 @Component({
     selector: 'app-courses-list',
@@ -6,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./courses-list.component.css'],
 })
 export class CoursesListComponent implements OnInit {
-    constructor() {}
+    public courses: Course[];
+    constructor(private service: CourseService) {}
 
-    ngOnInit() {}
+    ngOnInit() {
+        this.courses = this.service.getCourses();
+    }
+
+    onDeleted(course: Course): void {
+        const deletedCourse: Course =  this.service.deleteCourse(course.id);
+        this.courses = this.courses.filter(item => item.id !== deletedCourse.id);
+        console.log(this.courses);
+    }
 }

@@ -7,12 +7,12 @@ import { setCurrentInjector } from '@angular/core/src/di/injector';
     styleUrls: ['./input.component.css']
 })
 export class InputComponent implements OnInit {
-    @Input() public optionalClass: string;
     @Input() public value: string;
     @Input() public size: string;
+    @Input() public placeholder: string;
+
     currentClasses: Record<string, boolean>;
     constructor() {
-        this.optionalClass = '';
         this.size = 'm';
         this.value = null;
     }
@@ -24,9 +24,6 @@ export class InputComponent implements OnInit {
             'input_m': this.size === 'm',
             'input_l': this.size === 'l',
         };
-        if (this.optionalClass) {
-            this.currentClasses[this.optionalClass] = true;
-        }
     }
 
     ngOnInit() {
