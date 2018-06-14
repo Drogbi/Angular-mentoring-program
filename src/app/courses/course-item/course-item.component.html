@@ -1,0 +1,16 @@
+<div class="course">
+    <div class="course__info">
+        <div class="course__info-header">
+            <h2 class="course__title">{{course.title}}</h2>
+            <div class="course__time-info">
+                <div class="course__duration">{{course.durationMin + ' min'}}</div>
+                <div class="course__creation-date">{{getFormattedCourseDate()}}</div>
+            </div>
+        </div>
+        <p class="course__description">{{course.description}}</p>
+    </div>
+    <div class="course__button-group">
+        <app-button size="l" label="Edit"></app-button>
+        <app-button (click)="deleteCourse()" size="l" label="Delete"></app-button>
+    </div>
+</div>
