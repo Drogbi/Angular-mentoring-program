@@ -53,9 +53,9 @@
     display: flex;
 }
 
-.course__button-group > * {
-    padding-left: 10px;
-}
+.button-group__button-item {
+     padding-left: 10px;
+ }
 
 
 @media (max-width: 780px) {

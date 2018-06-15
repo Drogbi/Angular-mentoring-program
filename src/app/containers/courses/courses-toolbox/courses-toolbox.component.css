@@ -22,14 +22,11 @@
 }
 
 @media (max-width: 520px)  {
-    .courses-toolbox > * {
-        flex-grow: 1;
-    }
 
-    .courses-toolbox__search-input {
-        flex-grow: 1;
-    }
-    .courses-toolbox__search-button {
+    .courses-toolbox__search,
+    .courses-toolbox__search-input,
+    .courses-toolbox__search-button,
+    .courses-toolbox__add-course-button {
         flex-grow: 1;
     }
     .courses-toolbox__add-course-button {
