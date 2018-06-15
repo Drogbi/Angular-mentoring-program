@@ -1,9 +1,16 @@
 .courses-list {
+    display: flex;
+    flex-wrap: wrap;
     padding: 20px;
 }
 
 ::ng-deep .course {
     margin-bottom: 20px;
+}
+
+.courses-list__load-more {
+    margin: 0 auto;
+    width: 100%;
 }
 
 

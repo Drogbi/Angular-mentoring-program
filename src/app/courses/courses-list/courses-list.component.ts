@@ -15,9 +15,9 @@ export class CoursesListComponent implements OnInit {
         this.courses = this.service.getCourses();
     }
 
-    onDeleted(course: Course): void {
+    public onDeleted(course: Course): void {
         const deletedCourse: Course =  this.service.deleteCourse(course.id);
         this.courses = this.courses.filter(item => item.id !== deletedCourse.id);
-        console.log(this.courses);
     }
+
 }

@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 * { box-sizing: border-box}
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #efefef;
 }
 
-h2 {
+h2,p {
     margin: 0;
 }
 

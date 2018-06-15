@@ -2,30 +2,70 @@
     display: flex;
     background: none;
     font-family: 'Roboto', sans-serif;
-    border: 1px solid #141414;
     width: 100%;
     justify-content: center;
-}
-
-.button:focus {
-    background-color: #E4E4E4;
-    outline: none;
+    border-radius: 5px;
+    align-items: center;
+    padding: 12px;
+    color: white;
 }
 
 .button:hover {
-    background-color: #E4E4E4;
     cursor: pointer;
 }
 
-.button_s {
+.button_without-label {
+    padding: 3px;
+}
+
+.button__spacer {
+    width: 6px;
+}
+
+.button_size-s {
     height: 24px;
 }
 
-.button_m {
+.button_size-m  {
     height: 30px;
 }
 
-.button_l {
+.button_size-l {
     height: 36px;
 }
+
+.button_shape-square {
+    border-radius: 5px;
+}
+
+.button_shape-round {
+    border-radius: 18px;
+}
+
+.button_color-red {
+    background-color: #FF5252;
+}
+
+.button_color-red:hover {
+    background-color: #D32F2F;
+}
+
+
+.button_color-green {
+    background-color: #4CAF50;
+}
+
+.button_color-green:hover {
+    background-color: #388E3C;
+}
+
+.button_color-light-blue {
+    background-color: #03A9F4;
+}
+
+.button_color-light-blue:hover {
+    background-color: #1976D2;
+}
+
+
 

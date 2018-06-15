@@ -3,12 +3,14 @@
     padding: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: flex-end;
 }
 
 .courses-toolbox__search {
     display: flex;
     flex-wrap: nowrap;
-    width: 30%;
+    width: 40%;
+    min-width: 500px;
 }
 
 .courses-toolbox__search-input {
@@ -16,27 +18,35 @@
 }
 
 .courses-toolbox__search-button {
-    margin-left: -1px;
+    margin-left: 20px;
 }
 
-@media (max-width: 382px)  {
+@media (max-width: 520px)  {
     .courses-toolbox > * {
         flex-grow: 1;
     }
 
     .courses-toolbox__search-input {
-        flex-grow: 2;
+        flex-grow: 1;
     }
     .courses-toolbox__search-button {
         flex-grow: 1;
     }
     .courses-toolbox__add-course-button {
-        margin-top: 20px;
+        margin: 20px 0 0 0;
     }
 }
 
 @media (max-width: 1000px) {
     .courses-toolbox__search {
         width: auto;
+    }
+}
+
+
+@media (max-width: 780px) {
+    .courses-toolbox__search {
+        min-width: auto;
+        width: 70%;
     }
 }

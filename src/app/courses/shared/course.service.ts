@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Course } from './course.model';
 
-const courses = [
+let courses = [
     { id: 0, title: 'JavaScript Functions Decorators Generators', creationDate: new Date(2019, 10, 10), description: 'Secure shy favour length all twenty ' +
         'denote. Small for ask shade water manor think men begin. Able rent long in do we. An concluded sportsman offending so ' +
         'provision mr education. Dissimilar admiration so terminated no in contrasted it. He in sportsman household otherwise it ' +
@@ -31,7 +31,8 @@ export class CourseService {
     constructor() {}
 
     getCourses(): Course[] {
-        return courses;
+
+        return courses.slice();
     }
 
     deleteCourse(id: number): Course {

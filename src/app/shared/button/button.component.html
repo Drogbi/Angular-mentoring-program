@@ -1,1 +1,5 @@
-<button (click)="click.emit($event)"  [ngClass]="currentClasses" class="button">{{label}}</button>
+<div (click)="click"  [ngClass]="currentClasses" class="button">
+    <i class="material-icons button__icon">{{icon}}</i>
+    <div *ngIf="icon && label" class="button__spacer"></div>
+    {{label}}
+</div>
