@@ -7,3 +7,14 @@
     background-color: #0288D1;
 }
 
+.header__user {
+    display: flex;
+    align-items: center;
+}
+
+.header__user-name {
+    color: white;
+    font-size: 24px;
+    margin: 0 20px;
+
+}
