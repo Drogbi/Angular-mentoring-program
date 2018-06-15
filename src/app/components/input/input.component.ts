@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { setCurrentInjector } from '@angular/core/src/di/injector';
 
 @Component({
     selector: 'app-input',

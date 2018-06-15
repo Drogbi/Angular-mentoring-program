@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { CoursesListComponent } from './courses-list/courses-list.component';
 import { CoursesToolboxComponent } from './courses-toolbox/courses-toolbox.component';
 import { CourseItemComponent } from './course-item/course-item.component';
-import { SharedModule } from '../shared/shared.module';
 
 import { CourseService } from './shared/course.service';
+import { ComponentsModule } from '@components/components.module';
 
 @NgModule({
-    imports: [CommonModule, SharedModule],
+    imports: [CommonModule, ComponentsModule],
     exports: [CoursesListComponent, CoursesToolboxComponent, CourseItemComponent],
     declarations: [CoursesListComponent, CoursesToolboxComponent, CourseItemComponent],
     providers: [CourseService],

@@ -1,15 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { CoreModule } from './core/core.module';
-import { CoursesModule } from './courses/courses.module';
+import { ContainersModule } from './containers/containers.module';
+import { ComponentsModule } from '@components/components.module';
 
 import { AppComponent } from './app.component';
 
 
 
+
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, CoreModule, CoursesModule],
+    imports: [BrowserModule, ContainersModule, ComponentsModule],
     providers: [],
     bootstrap: [AppComponent],
 })
