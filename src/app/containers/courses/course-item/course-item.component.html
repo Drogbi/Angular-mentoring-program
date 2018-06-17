@@ -10,7 +10,7 @@
             </div>
             <div class="course__time-info">
                 <div class="course__duration">{{course.durationMin + ' min'}}</div>
-                <div class="course__creation-date">{{getFormattedCourseDate()}}</div>
+                <div class="course__creation-date">{{course.creationDate | date}}</div>
             </div>
         </div>
 

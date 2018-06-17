@@ -1,8 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Course } from '../shared/course.model';
-import * as moment from 'moment';
-import { CourseService } from '../shared/course.service';
-import { C } from '@angular/core/src/render3';
 
 const dateFormat = 'DD/MM/YYYY';
 
@@ -18,10 +15,6 @@ export class CourseItemComponent implements OnInit {
     constructor() { }
 
     ngOnInit() {
-    }
-
-    public getFormattedCourseDate(): string {
-        return moment(this.course.creationDate).format(dateFormat);
     }
 
     public deleteCourse(): void {
