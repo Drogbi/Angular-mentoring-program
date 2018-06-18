@@ -16,7 +16,7 @@
 }
 
 @media (max-width: 420px) {
-    .logo {
+    .logo__name {
         font-size: 22px;
     }
     .logo__image {
@@ -24,3 +24,14 @@
         height: 36px;
     }
 }
+
+@media (max-width: 420px) {
+    .logo__name {
+        font-size: 18px;
+    }
+    .logo__image {
+        width: 32px;
+        height: 32px;
+    }
+}
+
