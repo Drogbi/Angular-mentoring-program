@@ -6,9 +6,10 @@ import { CourseItemComponent } from './course-item/course-item.component';
 
 import { CourseService } from './shared/course.service';
 import { ComponentsModule } from '@components/components.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-    imports: [CommonModule, ComponentsModule],
+    imports: [CommonModule, ComponentsModule, HttpClientModule],
     exports: [CoursesListComponent, CoursesToolboxComponent, CourseItemComponent],
     declarations: [CoursesListComponent, CoursesToolboxComponent, CourseItemComponent],
     providers: [CourseService],

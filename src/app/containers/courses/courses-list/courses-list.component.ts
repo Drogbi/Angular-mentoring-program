@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../shared/course.model';
 import { CourseService } from '../shared/course.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-courses-list',
@@ -12,12 +13,15 @@ export class CoursesListComponent implements OnInit {
     constructor(private service: CourseService) {}
 
     ngOnInit() {
-        this.courses = this.service.getCourses();
+        this.service.getCourses().subscribe((data: Course[]) => {
+            this.courses = data;
+        });
     }
 
     public onDeleted(course: Course): void {
-        const deletedCourse: Course =  this.service.deleteCourse(course.id);
-        this.courses = this.courses.filter(item => item.id !== deletedCourse.id);
+        this.service.deleteCourse(course.id).subscribe((data: Course) => {
+            this.courses = this.courses.filter(item => item.id !== data.id);
+        });
     }
 
 }

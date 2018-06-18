@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Course } from './course.model';
+import { HttpClient } from '@angular/common/http';
+import { Observable, from, of} from 'rxjs';
 
-let courses = [
+
+const courses = [
     { id: 0, title: 'JavaScript Functions Decorators Generators', creationDate: new Date(2019, 10, 10), description: 'Secure shy favour length all twenty ' +
         'denote. Small for ask shade water manor think men begin. Able rent long in do we. An concluded sportsman offending so ' +
         'provision mr education. Dissimilar admiration so terminated no in contrasted it. He in sportsman household otherwise it ' +
@@ -28,14 +31,13 @@ let courses = [
     providedIn: 'root',
 })
 export class CourseService {
-    constructor() {}
+    constructor(private http: HttpClient) {}
 
-    getCourses(): Course[] {
-
-        return courses.slice();
+    getCourses(): Observable<Course[]> {
+        return of<Course[]>(courses);
     }
 
-    deleteCourse(id: number): Course {
-        return courses.splice(courses.findIndex(item => item.id === id), 1).pop();
+    deleteCourse(id: number): Observable<Course> {
+        return of<Course>(courses.splice(courses.findIndex(item => item.id === id), 1).pop());
     }
 }
