@@ -1,5 +1,4 @@
 .logo {
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 30px;
     display: flex;
@@ -16,7 +15,7 @@
     color: white;
 }
 
-@media (max-width: 380px) {
+@media (max-width: 420px) {
     .logo {
         font-size: 22px;
     }
