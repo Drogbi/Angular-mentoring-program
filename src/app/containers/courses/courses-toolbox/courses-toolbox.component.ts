@@ -6,10 +6,17 @@ import { Component, HostBinding, OnInit } from '@angular/core';
     styleUrls: ['./courses-toolbox.component.css']
 })
 export class CoursesToolboxComponent implements OnInit {
+    public searchValue: string;
 
-    constructor() { }
+    constructor() {
+        this.searchValue = '';
+    }
 
     ngOnInit() {
+    }
+
+    public onSearchValueInput(value: string) {
+        this.searchValue = value;
     }
 
 }

@@ -1,1 +1,1 @@
-<input [placeholder]="placeholder" [ngClass]="currentClasses" [(ngModel)]="value">
+<input (ngModelChange)="onChange($event)" [placeholder]="placeholder" [ngClass]="currentClasses" [ngModel]="value">

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'app-input',
@@ -9,6 +9,7 @@ export class InputComponent implements OnInit {
     @Input() public value: string;
     @Input() public size: string;
     @Input() public placeholder: string;
+    @Output() onchange: EventEmitter<string> = new EventEmitter<string>();
 
     currentClasses: Record<string, boolean>;
     constructor() {
@@ -24,6 +25,11 @@ export class InputComponent implements OnInit {
             'input_l': this.size === 'l',
         };
     }
+
+    public onChange(value: string) {
+        this.onchange.emit(value);
+    }
+
 
     ngOnInit() {
         this.setCurrentClasses();
