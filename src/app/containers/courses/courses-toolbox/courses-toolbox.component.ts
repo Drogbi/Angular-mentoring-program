@@ -19,4 +19,8 @@ export class CoursesToolboxComponent implements OnInit {
         this.searchValue = value;
     }
 
+    public onSearchClick() {
+        console.log(`Searching for: ${this.searchValue}...`);
+    }
+
 }
