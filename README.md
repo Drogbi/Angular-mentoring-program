@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Drogbi/Angular-mentoring-program.svg?branch=master)](https://travis-ci.com/Drogbi/Angular-mentoring-program)
+
 # AngularMentoringProgram
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
