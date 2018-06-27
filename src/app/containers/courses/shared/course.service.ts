@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Course } from './course.model';
-import { HttpClient } from '@angular/common/http';
 import { Observable, from, of} from 'rxjs';
 
 
@@ -31,7 +30,7 @@ const courses = [
     providedIn: 'root',
 })
 export class CourseService {
-    constructor(private http: HttpClient) {}
+    constructor() {}
 
     getCourses(): Observable<Course[]> {
         return of<Course[]>(courses);
