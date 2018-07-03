@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./logo.component.css'],
 })
 export class LogoComponent implements OnInit {
+    public logoName = 'Courses App';
+
     constructor() {}
 
     ngOnInit() {}
