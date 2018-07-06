@@ -3,16 +3,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
     selector: 'app-button',
     templateUrl: './button.component.html',
-    styleUrls: ['./button.component.css']
+    styleUrls: ['./button.component.css'],
 })
 export class ButtonComponent implements OnInit {
     @Input() label: string;
-    @Input() size: string;
-    @Input() shape: string;
+    @Input() size: 's' | 'm' | 'l';
+    @Input() shape: 'round' | 'square';
     @Input() icon: string;
-    @Input() color: string;
+    @Input() color: 'green' | 'light-blue' | 'red';
     @Output() click: EventEmitter<any> = new EventEmitter<any>();
-
 
     currentClasses: Record<string, boolean>;
     constructor() {
@@ -23,8 +22,8 @@ export class ButtonComponent implements OnInit {
     }
 
     private setCurrentClasses() {
-        this.currentClasses =  {
-            'button': true,
+        this.currentClasses = {
+            button: true,
             'button_without-label': !this.label,
             'button_size-s': this.size === 's',
             'button_size-m': this.size === 'm',
@@ -33,14 +32,11 @@ export class ButtonComponent implements OnInit {
             'button_shape-round': this.shape === 'round',
             'button_color-red': this.color === 'red',
             'button_color-green': this.color === 'green',
-            'button_color-light-blue': this.color === 'light-blue'
+            'button_color-light-blue': this.color === 'light-blue',
         };
     }
 
     ngOnInit() {
         this.setCurrentClasses();
     }
-
-
-
 }

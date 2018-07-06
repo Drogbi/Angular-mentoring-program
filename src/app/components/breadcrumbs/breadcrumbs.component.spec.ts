@@ -21,4 +21,8 @@ describe('BreadcrumbsComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
+    it('should contain real path', () => {
+        expect(fixture.nativeElement.textContent).toContain('Courses');
+    });
 });

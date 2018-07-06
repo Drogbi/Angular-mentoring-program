@@ -1,5 +1,5 @@
 <div (click)="click"  [ngClass]="currentClasses" class="button">
-    <i class="material-icons button__icon">{{icon}}</i>
+    <i *ngIf="icon" class="material-icons button__icon">{{icon}}</i>
     <div *ngIf="icon && label" class="button__spacer"></div>
     {{label}}
 </div>
