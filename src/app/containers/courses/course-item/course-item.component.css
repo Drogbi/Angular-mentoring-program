@@ -23,8 +23,11 @@
     padding: 20px;
 }
 
+.course__button-group {
+    margin-left: auto;
+}
+
 .course__title {
-    margin-right: auto;
     font-weight: 300;
 }
 
@@ -56,6 +59,12 @@
 .button-group__button-item {
      padding-left: 10px;
  }
+
+.course__top-rated-icon {
+    color: rgb(252, 248, 0);
+    padding: 3px 0 0 12px;
+    cursor: default;
+}
 
 
 @media (max-width: 780px) {

@@ -4,12 +4,8 @@ import { CoursesModule } from '@containers/courses/courses.module';
 import { ComponentsModule } from '@components/components.module';
 
 @NgModule({
-    imports: [
-        CommonModule, ComponentsModule
-    ],
-    exports: [
-        CoursesModule
-    ],
-    declarations: []
+    imports: [CommonModule, ComponentsModule, CoursesModule],
+    exports: [CoursesModule],
+    declarations: [],
 })
-export class ContainersModule { }
+export class ContainersModule {}

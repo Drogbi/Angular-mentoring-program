@@ -9,13 +9,6 @@ describe('CourseItemComponent', () => {
     let component: CourseItemComponent;
     let fixture: ComponentFixture<CourseItemComponent>;
     let courseItemDe: DebugElement;
-    const testCourse: Course = {
-        id: 0,
-        title: 'JavaScript Functions Decorators Generators',
-        creationDate: new Date(2019, 10, 10),
-        description: 'text',
-        durationMin: 30,
-    };
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({

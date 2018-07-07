@@ -28,5 +28,7 @@ export class CoursesListComponent implements OnInit {
         console.log('Loading More Courses...');
     }
 
-
+    public onAddCourseClick(): void {
+        console.log('Course added...');
+    }
 }

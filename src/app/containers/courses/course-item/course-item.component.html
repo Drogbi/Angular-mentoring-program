@@ -1,8 +1,9 @@
-<div class="course">
+<div [appHighlightBorder]='course.creationDate' class="course">
     <div class="course__info">
         <div class="course__info-header">
             <div class="course__title-row">
                 <h2 class="course__title">{{course.title}}</h2>
+                <i title="Top rated" *ngIf="course.topRated" class="material-icons course__top-rated-icon">star</i>
                 <div class="course__button-group">
                     <app-button class="button-group__button-item" icon="edit" shape="round"></app-button>
                     <app-button class="button-group__button-item" icon="delete" shape="round" (click)="deleteCourse()"></app-button>

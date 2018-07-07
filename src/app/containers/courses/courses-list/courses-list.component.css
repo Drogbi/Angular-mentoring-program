@@ -13,4 +13,15 @@
     width: 100%;
 }
 
+.courses-list__no-courses {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    color: #BDBDBD;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 700;
+}
+
 
