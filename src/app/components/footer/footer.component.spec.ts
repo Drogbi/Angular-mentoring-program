@@ -21,4 +21,10 @@ describe('FooterComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
+    it('should contain copiright message', () => {
+        expect(fixture.debugElement.nativeElement.textContent).toContain(
+            'Copyright @ Videocourses, All Rights Reserved.'
+        );
+    });
 });
