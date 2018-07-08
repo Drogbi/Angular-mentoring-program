@@ -5,8 +5,8 @@
                 <h2 class="course__title">{{course.title}}</h2>
                 <i title="Top rated" *ngIf="course.topRated" class="material-icons course__top-rated-icon">star</i>
                 <div class="course__button-group">
-                    <app-button class="button-group__button-item" icon="edit" shape="round"></app-button>
-                    <app-button class="button-group__button-item" icon="delete" shape="round" (click)="deleteCourse()"></app-button>
+                    <app-button class="button-group__button-item button-group__edit" icon="edit" shape="round"></app-button>
+                    <app-button class="button-group__button-item button-group__delete" icon="delete" shape="round" (click)="deleteCourse()"></app-button>
                 </div>
             </div>
             <div class="course__time-info">
