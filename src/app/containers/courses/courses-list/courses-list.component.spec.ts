@@ -47,7 +47,9 @@ describe('CoursesListComponent', () => {
     it('should create list of courses', () => {
         component.courses = testCourses;
         fixture.detectChanges();
-        expect(Array.from(fixture.nativeElement.querySelectorAll('li')).length).toBeGreaterThan(0);
+        expect(
+            Array.from(fixture.nativeElement.querySelectorAll('.courses-list__course-item')).length
+        ).toBeGreaterThan(0);
     });
 
     it('should display load more button if courses lenght greater than 0', () => {

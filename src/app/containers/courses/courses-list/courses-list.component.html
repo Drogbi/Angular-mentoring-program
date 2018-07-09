@@ -1,9 +1,6 @@
 <div class="courses-list">
-    <ul>
-        <li *ngFor="let course of courses">
-            <app-course-item class="courses-list__course-item" (deleted)="onDeleted($event)" [course]="course"></app-course-item>
-        </li>
-    </ul>
+    <app-course-item class="courses-list__course-item" (deleted)="onDeleted($event)" *ngFor="let course of courses" [course]="course"></app-course-item>
     <app-button *ngIf='courses.length' (click)="onLoadMoreClick()" class="courses-list__load-more" color="green" size="l" label="LOAD MORE"></app-button>
-    <div *ngIf='!courses.length' class='courses-list__no-courses'>no data. <br> feel free to add new course</div>
+    <div *ngIf='!courses.length' class='courses-list__no-courses'>no data.
+        <br> feel free to add new course</div>
 </div>
