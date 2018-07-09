@@ -2,7 +2,7 @@
     <div class="course__info">
         <div class="course__info-header">
             <div class="course__title-row">
-                <h2 class="course__title">{{course.title}}</h2>
+                <h2 class="course__title">{{course.title | uppercase}}</h2>
                 <i title="Top rated" *ngIf="course.topRated" class="material-icons course__top-rated-icon">star</i>
                 <div class="course__button-group">
                     <app-button class="button-group__button-item button-group__edit" icon="edit" shape="round"></app-button>
