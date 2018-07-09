@@ -3,7 +3,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 @Component({
     selector: 'app-courses-toolbox',
     templateUrl: './courses-toolbox.component.html',
-    styleUrls: ['./courses-toolbox.component.css']
+    styleUrls: ['./courses-toolbox.component.css'],
 })
 export class CoursesToolboxComponent implements OnInit {
     public searchValue: string;
@@ -12,15 +12,14 @@ export class CoursesToolboxComponent implements OnInit {
         this.searchValue = '';
     }
 
-    ngOnInit() {
-    }
+    ngOnInit() {}
 
     public onSearchValueInput(value: string) {
+        console.log('change');
         this.searchValue = value;
     }
 
     public onSearchClick() {
         console.log(`Searching for: ${this.searchValue}...`);
     }
-
 }
