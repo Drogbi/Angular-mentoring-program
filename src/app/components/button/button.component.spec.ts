@@ -36,19 +36,19 @@ describe('ButtonComponent', () => {
         component.icon = 'face';
         component.label = 'Press to face';
         fixture.detectChanges();
-        expect(fixture.debugElement.nativeElement.querySelector('.button__spacer')).not.toBe(null);
+        expect(fixture.nativeElement.querySelector('.button__spacer')).not.toBe(null);
     });
 
     it('should contain provided label', () => {
         component.label = 'Press to this button';
         fixture.detectChanges();
-        expect(fixture.debugElement.nativeElement.textContent).toContain('Press to this button');
+        expect(fixture.nativeElement.textContent).toContain('Press to this button');
     });
 
     it('should contain provided icon', () => {
         component.icon = 'face';
         fixture.detectChanges();
-        expect(fixture.debugElement.nativeElement.querySelector('.button__icon')).not.toBe(null);
+        expect(fixture.nativeElement.querySelector('.button__icon')).not.toBe(null);
     });
 });
 

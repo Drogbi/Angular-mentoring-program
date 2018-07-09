@@ -43,17 +43,17 @@ describe('CourseItemComponent', () => {
     it('should display course title', () => {
         component.course = testCourse;
         fixture.detectChanges();
-        expect(
-            fixture.debugElement.nativeElement.querySelector('.course__title').textContent
-        ).toContain(testCourse.title);
+        expect(fixture.nativeElement.querySelector('.course__title').textContent).toContain(
+            testCourse.title
+        );
     });
 
     it('should display course duration', () => {
         component.course = testCourse;
         fixture.detectChanges();
-        expect(
-            fixture.debugElement.nativeElement.querySelector('.course__duration').textContent
-        ).toContain(testCourse.durationMin);
+        expect(fixture.nativeElement.querySelector('.course__duration').textContent).toContain(
+            testCourse.durationMin
+        );
     });
 
     it('should display course creation date', () => {
@@ -69,8 +69,6 @@ describe('CourseItemComponent', () => {
     it('should create top rated icon if course is top rated', () => {
         component.course = testCourse;
         fixture.detectChanges();
-        expect(
-            fixture.debugElement.nativeElement.querySelector('.course__top-rated-icon')
-        ).not.toBeNull();
+        expect(fixture.nativeElement.querySelector('.course__top-rated-icon')).not.toBeNull();
     });
 });
