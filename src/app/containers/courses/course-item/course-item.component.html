@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="course__time-info">
-                <div class="course__duration">{{course.durationMin + ' min'}}</div>
+                <div class="course__duration">{{course.durationMin | formatMinutes}}</div>
                 <div class="course__creation-date">{{course.creationDate | date}}</div>
             </div>
         </div>
