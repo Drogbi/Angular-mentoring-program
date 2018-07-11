@@ -5,6 +5,6 @@ export class FormatMinutesPipe implements PipeTransform {
     transform(value: number) {
         const hours = Math.floor(value / 60);
         const minutes = value - hours * 60;
-        return hours ? `${hours}h ${minutes}m` : `${minutes}m`;
+        return hours ? `${hours}h ${minutes}min` : `${minutes}min`;
     }
 }
