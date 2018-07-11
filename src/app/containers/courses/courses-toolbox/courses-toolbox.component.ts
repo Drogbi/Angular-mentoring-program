@@ -1,4 +1,4 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-courses-toolbox',
@@ -7,6 +7,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 })
 export class CoursesToolboxComponent implements OnInit {
     public searchValue: string;
+    @Output() searchClicked: EventEmitter<string> = new EventEmitter<string>();
 
     constructor() {
         this.searchValue = '';
@@ -15,11 +16,11 @@ export class CoursesToolboxComponent implements OnInit {
     ngOnInit() {}
 
     public onSearchValueInput(value: string) {
-        console.log('change');
         this.searchValue = value;
     }
 
     public onSearchClick() {
+        this.searchClicked.emit(this.searchValue);
         console.log(`Searching for: ${this.searchValue}...`);
     }
 }

@@ -2,8 +2,8 @@
     <div class="content">
         <app-header></app-header>
         <app-breadcrumbs></app-breadcrumbs>
-        <app-courses-toolbox></app-courses-toolbox>
-        <app-courses-list></app-courses-list>
+        <app-courses-toolbox (searchClicked)='onSearchClicked($event)'></app-courses-toolbox>
+        <app-courses-list [searchValue]='searchValue'></app-courses-list>
     </div>
     <app-footer class="footer"></app-footer>
 </div>
