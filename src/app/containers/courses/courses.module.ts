@@ -9,6 +9,7 @@ import { ComponentsModule } from '@components/components.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HighlightBorderDirective } from '@containers/courses/course-item/highlight-border.directive';
 import { FormatMinutesPipe } from '@containers/courses/shared/format-minutes.pipe';
+import { FilterCourseItemsPipe } from '@containers/courses/courses-list/filter-course-items.pipe';
 
 @NgModule({
     imports: [CommonModule, ComponentsModule, HttpClientModule],
@@ -19,7 +20,8 @@ import { FormatMinutesPipe } from '@containers/courses/shared/format-minutes.pip
         CourseItemComponent,
         HighlightBorderDirective,
         FormatMinutesPipe,
+        FilterCourseItemsPipe,
     ],
-    providers: [CourseService],
+    providers: [CourseService, FilterCourseItemsPipe],
 })
 export class CoursesModule {}

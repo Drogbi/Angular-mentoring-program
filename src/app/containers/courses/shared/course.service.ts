@@ -18,7 +18,7 @@ const courses = [
     },
     {
         id: 1,
-        title: '#C Essential',
+        title: 'C# Essential',
         creationDate: new Date(2019, 1, 5),
         description:
             'Secure shy favour length all twenty ' +
