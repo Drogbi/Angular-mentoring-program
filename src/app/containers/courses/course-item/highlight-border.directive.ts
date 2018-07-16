@@ -14,14 +14,13 @@ export class HighlightBorderDirective implements OnInit {
     }
 
     ngOnInit() {
-        this.element.nativeElement.style.border = '1px solid red';
         if (
             this.creationDate < this.currentDate &&
             this.creationDate >= new Date(new Date().setDate(new Date().getDate() - 14))
         ) {
-            this.element.nativeElement.style.border = '1px solid #4CAF50';
+            this.element.nativeElement.classList.add('course_fresh');
         } else if (this.creationDate > this.currentDate) {
-            this.element.nativeElement.style.border = '1px solid #03A9F4';
+            this.element.nativeElement.classList.add('course_upcoming');
         }
     }
 }
