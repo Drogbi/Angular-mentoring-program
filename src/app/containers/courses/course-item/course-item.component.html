@@ -1,21 +1,19 @@
-<div [appHighlightBorder]='course.creationDate' class="course">
-    <div class="course__info">
-        <div class="course__info-header">
-            <div class="course__title-row">
-                <h2 class="course__title">{{course.title | uppercase}}</h2>
-                <i title="Top rated" *ngIf="course.topRated" class="material-icons course__top-rated-icon">star</i>
-                <div class="course__button-group">
-                    <app-button class="button-group__button-item button-group__edit" icon="edit" shape="round"></app-button>
-                    <app-button class="button-group__button-item button-group__delete" icon="delete" shape="round" (click)="deleteCourse()"></app-button>
-                </div>
-            </div>
-            <div class="course__time-info">
-                <div class="course__duration">{{course.durationMin | formatMinutes}}</div>
-                <div class="course__creation-date">{{course.creationDate | date}}</div>
+<div class="course__info">
+    <div class="course__info-header">
+        <div class="course__title-row">
+            <h2 class="course__title">{{course.title | uppercase}}</h2>
+            <i title="Top rated" *ngIf="course.topRated" class="material-icons course__top-rated-icon">star</i>
+            <div class="course__button-group">
+                <app-button class="button-group__button-item button-group__edit" icon="edit" shape="round"></app-button>
+                <app-button class="button-group__button-item button-group__delete" icon="delete" shape="round" (click)="deleteCourse()"></app-button>
             </div>
         </div>
-
-        <p class="course__description">{{course.description}}</p>
+        <div class="course__time-info">
+            <div class="course__duration">{{course.durationMin | formatMinutes}}</div>
+            <div class="course__creation-date">{{course.creationDate | date}}</div>
+        </div>
     </div>
 
+    <p class="course__description">{{course.description}}</p>
 </div>
+

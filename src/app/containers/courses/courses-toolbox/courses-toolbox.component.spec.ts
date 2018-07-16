@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
 
-import { CoursesToolboxComponent } from './courses-toolbox.component';
+import { CoursesToolboxComponent } from '@containers/courses/courses-toolbox/courses-toolbox.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { newEvent } from '../../../testing';

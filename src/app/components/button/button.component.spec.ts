@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { By } from '@angular/platform-browser';
 
-import { ButtonComponent } from './button.component';
+import { ButtonComponent } from '@components/button/button.component';
 import { click } from '../../testing';
 
 describe('ButtonComponent', () => {

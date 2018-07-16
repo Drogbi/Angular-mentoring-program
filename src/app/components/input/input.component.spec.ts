@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputComponent } from './input.component';
+import { InputComponent } from '@components/input/input.component';
 import { FormsModule } from '@angular/forms';
 
 import { By } from '@angular/platform-browser';

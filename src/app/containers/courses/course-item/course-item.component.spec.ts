@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CourseItemComponent } from './course-item.component';
+import { CourseItemComponent } from '@containers/courses/course-item/course-item.component';
 import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { Course } from '@containers/courses/shared/course.model';
-import { HighlightBorderDirective } from '@containers/courses/course-item/highlight-border.directive';
+import { HighlightBorderDirective } from '@containers/courses/courses-list/highlight-border.directive';
 import { DatePipe } from '@angular/common';
 import { click } from '../../../testing';
 import { FormatMinutesPipe } from '@containers/courses/shared/format-minutes.pipe';

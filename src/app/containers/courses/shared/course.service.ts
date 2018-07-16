@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Course } from './course.model';
+import { Course } from '@containers/courses/shared/course.model';
 import { Observable, from, of } from 'rxjs';
 import { TransitiveCompileNgModuleMetadata } from '@angular/compiler';
 

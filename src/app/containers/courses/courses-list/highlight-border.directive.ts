@@ -18,9 +18,9 @@ export class HighlightBorderDirective implements OnInit {
             this.creationDate < this.currentDate &&
             this.creationDate >= new Date(new Date().setDate(new Date().getDate() - 14))
         ) {
-            this.element.nativeElement.classList.add('course_fresh');
+            this.element.nativeElement.classList.add('course-item_fresh');
         } else if (this.creationDate > this.currentDate) {
-            this.element.nativeElement.classList.add('course_upcoming');
+            this.element.nativeElement.classList.add('course-item_upcoming');
         }
     }
 }

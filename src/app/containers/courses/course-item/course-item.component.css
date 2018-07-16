@@ -1,9 +1,3 @@
-.course {
-    display: flex;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
 .course__info-header {
     display: flex;
     background-color: #03A9F4;
@@ -82,14 +76,6 @@
     .course__button-group {
         margin-bottom: 20px;
     }
-}
-
-.course_fresh {
-    border: 1px solid #4CAF50;
-}
-
-.course_upcoming {
-    border: 1px solid #03A9F4;
 }
 
 

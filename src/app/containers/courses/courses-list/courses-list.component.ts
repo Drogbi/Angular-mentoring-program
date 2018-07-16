@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
-import { Course } from '../shared/course.model';
-import { CourseService } from '../shared/course.service';
+import { Course } from '@containers/courses/shared/course.model';
+import { CourseService } from '@containers/courses/shared/course.service';
 import { Observable, Subscription } from 'rxjs';
 import { FilterCourseItemsPipe } from '@containers/courses/courses-list/filter-course-items.pipe';
 

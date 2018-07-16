@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CoursesListComponent } from './courses-list.component';
+import { CoursesListComponent } from '@containers/courses/courses-list/courses-list.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Course } from '@containers/courses/shared/course.model';
 import { FilterCourseItemsPipe } from '@containers/courses/courses-list/filter-course-items.pipe';

@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { CourseService } from './course.service';
+import { CourseService } from '@containers/courses/shared/course.service';
 
 describe('CourseService', () => {
     let service: CourseService;

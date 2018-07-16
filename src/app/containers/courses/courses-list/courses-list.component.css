@@ -6,6 +6,9 @@
 
 .courses-list__course-item {
     margin-bottom: 20px;
+    display: flex;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
 .courses-list__load-more {
@@ -23,5 +26,15 @@
     text-align: center;
     font-weight: 700;
 }
+
+.course-item_fresh {
+    border: 1px solid #4CAF50;
+}
+
+.course-item_upcoming {
+    border: 1px solid #03A9F4;
+}
+
+
 
 
