@@ -10,24 +10,20 @@ import { CourseService } from '@containers/courses/shared/course.service';
 })
 export class AppComponent {
     searchValue: string;
-    courses: Course[];
     coursesStore: Course[];
 
     constructor(
         private courseService: CourseService,
-        private filterCourseItems: FilterCourseItemsPipe
+        public filterCourseItems: FilterCourseItemsPipe
     ) {
         this.searchValue = '';
         this.courseService.getCourses().subscribe(courses => {
             this.coursesStore = courses;
-            this.courses = this.coursesStore;
         });
     }
 
     onSearchClicked(value: string) {
         this.searchValue = value;
-        this.courses =
-            this.coursesStore &&
-            this.filterCourseItems.transform(this.coursesStore, this.searchValue);
+        this.filterCourseItems.transform(this.coursesStore, this.searchValue);
     }
 }

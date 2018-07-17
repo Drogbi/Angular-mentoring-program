@@ -3,7 +3,7 @@
         <app-header></app-header>
         <app-breadcrumbs></app-breadcrumbs>
         <app-courses-toolbox (searchClicked)='onSearchClicked($event)'></app-courses-toolbox>
-        <app-courses-list [courses]='courses'></app-courses-list>
+        <app-courses-list [courses]='filterCourseItems.transform(coursesStore, searchValue)'></app-courses-list>
     </div>
     <app-footer class="footer"></app-footer>
 </div>
