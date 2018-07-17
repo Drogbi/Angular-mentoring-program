@@ -1,5 +1,7 @@
 <div class="courses-list">
-    <app-course-item [appHighlightBorder]='course.creationDate' class="courses-list__course-item" (deleted)="onDeleted($event)" *ngFor="let course of courses" [course]="course"></app-course-item>
+    <app-courses-toolbox (searchClicked)='onSearchClicked($event)'></app-courses-toolbox>
+    <app-course-item [appHighlightBorder]='course.creationDate' class="courses-list__course-item" (deleted)="onDeleted($event)"
+        *ngFor="let course of filterCourseItems.transform(courses, searchValue)" [course]="course"></app-course-item>
     <app-button *ngIf='courses.length' (click)="onLoadMoreClick()" class="courses-list__load-more" color="green" size="l" label="LOAD MORE"></app-button>
     <div *ngIf='!courses.length' class='courses-list__no-courses'>no data.
         <br> feel free to add new course</div>

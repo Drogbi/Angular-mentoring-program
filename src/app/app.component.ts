@@ -8,22 +8,4 @@ import { CourseService } from '@containers/courses/shared/course.service';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-    searchValue: string;
-    coursesStore: Course[];
-
-    constructor(
-        private courseService: CourseService,
-        public filterCourseItems: FilterCourseItemsPipe
-    ) {
-        this.searchValue = '';
-        this.courseService.getCourses().subscribe(courses => {
-            this.coursesStore = courses;
-        });
-    }
-
-    onSearchClicked(value: string) {
-        this.searchValue = value;
-        this.filterCourseItems.transform(this.coursesStore, this.searchValue);
-    }
-}
+export class AppComponent {}

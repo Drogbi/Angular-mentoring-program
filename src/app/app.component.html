@@ -2,8 +2,7 @@
     <div class="content">
         <app-header></app-header>
         <app-breadcrumbs></app-breadcrumbs>
-        <app-courses-toolbox (searchClicked)='onSearchClicked($event)'></app-courses-toolbox>
-        <app-courses-list [courses]='filterCourseItems.transform(coursesStore, searchValue)'></app-courses-list>
+        <router-outlet></router-outlet>
     </div>
     <app-footer class="footer"></app-footer>
 </div>

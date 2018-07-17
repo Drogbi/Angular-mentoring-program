@@ -7,15 +7,26 @@ import { FooterComponent } from '@components/footer/footer.component';
 import { HeaderComponent } from '@components/header/header.component';
 import { InputComponent } from '@components/input/input.component';
 import { LogoComponent } from '@components/logo/logo.component';
+import { LabeledInputComponent } from './labeled-input/labeled-input.component';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule
-    ],
+    imports: [CommonModule, FormsModule],
     exports: [
-        ButtonComponent, BreadcrumbsComponent, FooterComponent, HeaderComponent, InputComponent, LogoComponent
+        ButtonComponent,
+        BreadcrumbsComponent,
+        FooterComponent,
+        HeaderComponent,
+        InputComponent,
+        LogoComponent,
     ],
-    declarations: [ButtonComponent, BreadcrumbsComponent, FooterComponent, HeaderComponent, InputComponent, LogoComponent]
+    declarations: [
+        ButtonComponent,
+        BreadcrumbsComponent,
+        FooterComponent,
+        HeaderComponent,
+        InputComponent,
+        LogoComponent,
+        LabeledInputComponent,
+    ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}

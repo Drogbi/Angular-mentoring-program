@@ -9,8 +9,14 @@ import { CourseService } from '@containers/courses/shared/course.service';
     styleUrls: ['./courses-list.component.css'],
 })
 export class CoursesListComponent {
-    @Input() courses: Course[];
-    constructor(private service: CourseService) {}
+    searchValue: string;
+    courses: Course[];
+    constructor(private service: CourseService, public filterCourseItems: FilterCourseItemsPipe) {
+        this.searchValue = '';
+        this.service.getCourses().subscribe(courses => {
+            this.courses = courses;
+        });
+    }
 
     public onDeleted(course: Course): void {
         this.service.deleteCourse(course.id).subscribe((data: Course) => {
@@ -24,5 +30,10 @@ export class CoursesListComponent {
 
     public onAddCourseClick(): void {
         console.log('Course added...');
+    }
+
+    public onSearchClicked(value: string) {
+        this.searchValue = value;
+        this.filterCourseItems.transform(this.courses, this.searchValue);
     }
 }
