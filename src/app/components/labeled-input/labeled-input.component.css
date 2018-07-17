@@ -1,7 +1,12 @@
-.labeled-input__container {
+@import '../input/input.component.css';
 
+.labeled-input__container {
+    display: flex;
+    flex-direction: column;
 }
 
 .labeled-input__label {
-
+    font-weight: 300;
+    color: #8a8a8a;
+    margin-bottom: 6px;
 }

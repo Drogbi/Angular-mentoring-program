@@ -6,6 +6,11 @@
     border: solid 1px #BDBDBD;
 }
 
+.input::placeholder {
+    color: #bebebe;
+    font-weight: 300;
+}
+
 .input_s {
     height: 24px;
 }

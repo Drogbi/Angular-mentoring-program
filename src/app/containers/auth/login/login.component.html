@@ -1,3 +1,17 @@
 <div class="login__container">
-    
+    <div class="login__form">
+        <h2 class="login-form__headline">Welcome!</h2>
+        <app-labeled-input class="login-form__input" size='l' (onchange)='onLoginChange($event)' [value]='login' placeholder='Enter your login'
+            label='Login'></app-labeled-input>
+        <app-labeled-input class="login-form__input" size='l' (onchange)='onPasswordChange($event)' [value]='password' placeholder='Enter your password'
+            label='Password'></app-labeled-input>
+        <div class="login-form__button-group">
+            <app-button class="login-form__login-button" size='l' color='green' label='Login'></app-button>
+            <div class="login-form__anchor-group">
+                    <a class="login-form__sign-up" href="/">Sign up</a>
+                    <a class="login-form__forgot-password" href="/">Forgot password?</a>
+            </div>
+        </div>
+
+    </div>
 </div>

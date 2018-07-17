@@ -25,7 +25,8 @@
     font-weight: 300;
 }
 
-.course__duration, .course__creation-date {
+.course__duration,
+.course__creation-date {
     font-size: 17px;
     white-space: nowrap;
     font-weight: 300;
@@ -51,15 +52,14 @@
 }
 
 .button-group__button-item {
-     padding-left: 10px;
- }
+    padding-left: 10px;
+}
 
 .course__top-rated-icon {
     color: rgb(252, 248, 0);
     padding: 3px 0 0 12px;
     cursor: default;
 }
-
 
 @media (max-width: 780px) {
     .course__time-info {
@@ -72,10 +72,7 @@
     .course {
         display: block;
     }
-
     .course__button-group {
         margin-bottom: 20px;
     }
 }
-
-

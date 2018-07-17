@@ -18,6 +18,7 @@ import { LabeledInputComponent } from './labeled-input/labeled-input.component';
         HeaderComponent,
         InputComponent,
         LogoComponent,
+        LabeledInputComponent,
     ],
     declarations: [
         ButtonComponent,
