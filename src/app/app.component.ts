@@ -1,5 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
-import { CoursesToolboxComponent } from '@containers/courses/courses-toolbox/courses-toolbox.component';
+import { Component, OnChanges } from '@angular/core';
+import { Course } from '@containers/courses/shared/course.model';
+import { FilterCourseItemsPipe } from '@containers/courses/courses-list/filter-course-items.pipe';
+import { CourseService } from '@containers/courses/shared/course.service';
 
 @Component({
     selector: 'app-root',
@@ -8,11 +10,24 @@ import { CoursesToolboxComponent } from '@containers/courses/courses-toolbox/cou
 })
 export class AppComponent {
     searchValue: string;
-    constructor() {
+    courses: Course[];
+    coursesStore: Course[];
+
+    constructor(
+        private courseService: CourseService,
+        private filterCourseItems: FilterCourseItemsPipe
+    ) {
         this.searchValue = '';
+        this.courseService.getCourses().subscribe(courses => {
+            this.coursesStore = courses;
+            this.courses = this.coursesStore;
+        });
     }
 
     onSearchClicked(value: string) {
         this.searchValue = value;
+        this.courses =
+            this.coursesStore &&
+            this.filterCourseItems.transform(this.coursesStore, this.searchValue);
     }
 }
