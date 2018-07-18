@@ -1,7 +1,7 @@
 <div class="container">
     <div class="content">
         <app-header></app-header>
-        <app-breadcrumbs></app-breadcrumbs>
+        <app-breadcrumbs *ngIf="authService.isAuthenticated()"></app-breadcrumbs>
         <router-outlet></router-outlet>
     </div>
     <app-footer class="footer"></app-footer>

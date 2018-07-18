@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './containers/auth/auth.module';
 import { LoginComponent } from './containers/auth/login/login.component';
 import { ContainersModule } from './containers/containers.module';
+import { AuthService } from './containers/auth/shared/auth.service';
 
 const appRoutes: Routes = [
     { path: 'courses', component: CoursesListComponent },
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
         AuthModule,
         RouterModule.forRoot(appRoutes, { enableTracing: true }),
     ],
-    providers: [],
+    providers: [AuthService],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

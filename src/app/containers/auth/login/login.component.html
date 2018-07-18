@@ -6,7 +6,7 @@
         <app-labeled-input class="login-form__input" size='l' (onchange)='onPasswordChange($event)' [value]='password' placeholder='Enter your password'
             label='Password'></app-labeled-input>
         <div class="login-form__button-group">
-            <app-button class="login-form__login-button" size='l' color='green' label='Login'></app-button>
+            <app-button (click)="onLoginClick()" class="login-form__login-button" size='l' color='green' label='Login'></app-button>
             <div class="login-form__anchor-group">
                     <a class="login-form__sign-up" href="/">Sign up</a>
                     <a class="login-form__forgot-password" href="/">Forgot password?</a>
