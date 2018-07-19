@@ -21,7 +21,6 @@ export class CourseItemComponent implements OnInit {
     ngOnInit() {}
 
     public deleteCourse(): void {
-        this.confirmationModalService.open();
         this.deleted.emit(this.course);
     }
 }
