@@ -10,10 +10,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { HighlightBorderDirective } from '@containers/courses/courses-list/highlight-border.directive';
 import { FormatMinutesPipe } from '@containers/courses/shared/format-minutes.pipe';
 import { FilterCourseItemsPipe } from '@containers/courses/courses-list/filter-course-items.pipe';
+import { OverlayModule, Overlay } from '@angular/cdk/overlay';
+import { DeleteItemModalComponent } from './shared/modals/delete-item-modal/delete-item-modal.component';
+import { ConfirmationModalService } from '@components/shared/confirmation-modal.service';
 
 @NgModule({
-    imports: [CommonModule, ComponentsModule, HttpClientModule],
-    exports: [CoursesListComponent, CoursesToolboxComponent, CourseItemComponent],
+    imports: [CommonModule, ComponentsModule, HttpClientModule, OverlayModule],
+    exports: [
+        CoursesListComponent,
+        CoursesToolboxComponent,
+        CourseItemComponent,
+        DeleteItemModalComponent,
+    ],
     declarations: [
         CoursesListComponent,
         CoursesToolboxComponent,
@@ -21,7 +29,9 @@ import { FilterCourseItemsPipe } from '@containers/courses/courses-list/filter-c
         HighlightBorderDirective,
         FormatMinutesPipe,
         FilterCourseItemsPipe,
+        DeleteItemModalComponent,
     ],
-    providers: [CourseService, FilterCourseItemsPipe],
+    providers: [CourseService, FilterCourseItemsPipe, Overlay, ConfirmationModalService],
+    entryComponents: [DeleteItemModalComponent],
 })
 export class CoursesModule {}
