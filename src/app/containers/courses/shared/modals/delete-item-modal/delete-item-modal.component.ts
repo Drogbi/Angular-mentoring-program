@@ -7,14 +7,14 @@ import { IModal } from '@components/shared/types';
     styleUrls: ['./delete-item-modal.component.css'],
 })
 export class DeleteItemModalComponent implements IModal {
-    public afterClose: EventEmitter<boolean> = new EventEmitter();
+    public close: EventEmitter<boolean> = new EventEmitter();
     constructor() {}
 
     public onSuccess() {
-        this.afterClose.emit(true);
+        this.close.emit(true);
     }
 
     public onFail() {
-        console.log('fail');
+        this.close.emit(false);
     }
 }

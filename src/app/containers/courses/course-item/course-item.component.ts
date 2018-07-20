@@ -19,9 +19,11 @@ export class CourseItemComponent implements OnInit {
     ngOnInit() {}
 
     public deleteCourse(): void {
-        this.confirmationModalService
-            .open(DeleteItemModalComponent)
-            .afterClose.subscribe(value => console.log(value));
-        this.deleted.emit(this.course);
+        this.confirmationModalService.open(DeleteItemModalComponent).subscribe(response => {
+            if (response) {
+                this.deleted.emit(this.course);
+            }
+            this.confirmationModalService.close();
+        });
     }
 }
