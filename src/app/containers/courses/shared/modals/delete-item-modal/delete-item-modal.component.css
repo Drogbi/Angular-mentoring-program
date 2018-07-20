@@ -1,5 +1,26 @@
-:host {
+.delete-course-modal {
+    padding: 36px;
+    background: white;
+    border-radius: 5px;
+}
+
+.delete-course-modal__headline {
+    font-weight: 300;
+    padding: 12px 0;
+    border-bottom: 1px solid #dddddd;
+}
+
+.delete-course-modal__text {
+    padding: 24px 0;
+    font-weight: 300;
+}
+
+
+.delete-course-modal__button-group {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    padding: 12px 0;
+}
+
+.button-group__success-button {
+    margin-right: 6px;
+}

@@ -1,9 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Course } from '@containers/courses/shared/course.model';
-import { Overlay, OverlayModule } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
-import { ButtonComponent } from '@components/button/button.component';
 import { ConfirmationModalService } from '@components/shared/confirmation-modal.service';
+import { Course } from '@containers/courses/shared/course.model';
+import { DeleteItemModalComponent } from '@containers/courses/shared/modals/delete-item-modal/delete-item-modal.component';
 
 @Component({
     selector: 'app-course-item',
@@ -21,6 +19,9 @@ export class CourseItemComponent implements OnInit {
     ngOnInit() {}
 
     public deleteCourse(): void {
+        this.confirmationModalService
+            .open(DeleteItemModalComponent)
+            .afterClose.subscribe(value => console.log(value));
         this.deleted.emit(this.course);
     }
 }
