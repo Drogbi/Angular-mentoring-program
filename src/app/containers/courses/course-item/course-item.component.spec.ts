@@ -8,6 +8,7 @@ import { HighlightBorderDirective } from '@containers/courses/courses-list/highl
 import { DatePipe } from '@angular/common';
 import { click } from '../../../testing';
 import { FormatMinutesPipe } from '@containers/courses/shared/format-minutes.pipe';
+import { Overlay } from '@angular/cdk/overlay';
 
 describe('CourseItemComponent', () => {
     let component: CourseItemComponent;
@@ -20,6 +21,7 @@ describe('CourseItemComponent', () => {
         TestBed.configureTestingModule({
             declarations: [CourseItemComponent, HighlightBorderDirective, FormatMinutesPipe],
             schemas: [CUSTOM_ELEMENTS_SCHEMA],
+            providers: [Overlay],
         }).compileComponents();
     }));
 

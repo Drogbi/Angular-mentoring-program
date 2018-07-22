@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CoursesListComponent } from '@containers/courses/courses-list/courses-list.component';
 import { Course } from '@containers/courses/shared/course.model';
+import { FilterCourseItemsPipe } from '@containers/courses/courses-list/filter-course-items.pipe';
 
 describe('CoursesListComponent', () => {
     let component: CoursesListComponent;
@@ -12,6 +13,7 @@ describe('CoursesListComponent', () => {
         TestBed.configureTestingModule({
             declarations: [CoursesListComponent],
             schemas: [CUSTOM_ELEMENTS_SCHEMA],
+            providers: [FilterCourseItemsPipe],
         }).compileComponents();
     }));
 
