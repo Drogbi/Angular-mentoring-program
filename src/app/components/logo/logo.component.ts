@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-logo',
@@ -8,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class LogoComponent implements OnInit {
     public logoName = 'Courses App';
 
-    constructor() {}
+    constructor(private router: Router) {}
 
     ngOnInit() {}
+
+    public onLogoClick() {
+        this.router.navigate(['courses']);
+    }
 }

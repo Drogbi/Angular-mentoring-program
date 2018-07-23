@@ -9,6 +9,7 @@ export class TextAreaComponent implements OnInit {
     @Input() public value: string;
     @Input() public placeholder: string;
     @Output() onchange: EventEmitter<string> = new EventEmitter<string>();
+    @Input() public rows: number;
 
     constructor() {
         this.value = null;
