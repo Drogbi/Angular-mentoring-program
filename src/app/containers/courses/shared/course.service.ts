@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Course } from '@containers/courses/shared/course.model';
-import { Observable, from, of } from 'rxjs';
-import { TransitiveCompileNgModuleMetadata } from '@angular/compiler';
+import { Observable, of } from 'rxjs';
 
 let courses = [
     {

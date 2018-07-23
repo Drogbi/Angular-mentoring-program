@@ -12,10 +12,12 @@ import { Router } from '../../node_modules/@angular/router';
 })
 export class AppComponent {
     constructor(public authService: AuthService, router: Router) {
-        if (authService.isAuthenticated()) {
-            router.navigate(['courses']);
-        } else {
-            router.navigate(['login']);
-        }
+        authService.isAuthenticated().subscribe(isAuthenticated => {
+            if (isAuthenticated) {
+                router.navigate(['courses']);
+            } else {
+                router.navigate(['login']);
+            }
+        });
     }
 }
