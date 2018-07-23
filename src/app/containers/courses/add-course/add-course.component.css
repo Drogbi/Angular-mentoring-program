@@ -1,0 +1,30 @@
+:host {
+    display: flex;
+    justify-content: center;
+}
+
+.add-course__container {
+    background: white;
+    padding: 64px;
+    margin: 24px;
+    border-radius: 5px;
+    display: flex;
+    width: 50%;
+}
+
+.add-course__form {
+    width: 100%;
+}
+
+.button-group {
+    display: flex;
+}
+
+.form__form-item {
+    display: flex;
+    padding-bottom: 24px;
+}
+
+.button-group__save-button {
+    margin-right: 12px;
+}

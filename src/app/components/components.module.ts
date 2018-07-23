@@ -8,6 +8,7 @@ import { HeaderComponent } from '@components/header/header.component';
 import { InputComponent } from '@components/input/input.component';
 import { LogoComponent } from '@components/logo/logo.component';
 import { LabeledInputComponent } from './labeled-input/labeled-input.component';
+import { TextAreaComponent } from './text-area/text-area.component';
 
 @NgModule({
     imports: [CommonModule, FormsModule],
@@ -19,6 +20,7 @@ import { LabeledInputComponent } from './labeled-input/labeled-input.component';
         InputComponent,
         LogoComponent,
         LabeledInputComponent,
+        TextAreaComponent,
     ],
     declarations: [
         ButtonComponent,
@@ -28,6 +30,7 @@ import { LabeledInputComponent } from './labeled-input/labeled-input.component';
         InputComponent,
         LogoComponent,
         LabeledInputComponent,
+        TextAreaComponent,
     ],
 })
 export class ComponentsModule {}

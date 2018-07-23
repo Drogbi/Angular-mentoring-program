@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd, ActivationEnd } from '@angular/router';
 
 @Component({
     selector: 'app-breadcrumbs',
@@ -6,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./breadcrumbs.component.css'],
 })
 export class BreadcrumbsComponent implements OnInit {
-    constructor() {}
+    public path: string;
 
-    ngOnInit() {}
+    constructor(private router: Router) {}
+
+    ngOnInit() {
+        this.router.events.subscribe(event => {
+            if (event instanceof ActivationEnd) {
+                this.path = event.snapshot.data.title;
+            }
+        });
+    }
 }

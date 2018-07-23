@@ -1,0 +1,12 @@
+.text-area {
+    display: flex;
+    padding: 6px;
+    width: 100%;
+    border-radius: 5px;
+    border: solid 1px #BDBDBD;
+}
+
+.text-area::placeholder {
+    color: #bebebe;
+    font-weight: 300;
+}

@@ -8,10 +8,13 @@ import { AuthModule } from './containers/auth/auth.module';
 import { LoginComponent } from './containers/auth/login/login.component';
 import { ContainersModule } from './containers/containers.module';
 import { AuthService } from './containers/auth/shared/auth.service';
+import { AddCourseComponent } from '@containers/courses/add-course/add-course.component';
 
 const appRoutes: Routes = [
-    { path: 'courses', component: CoursesListComponent },
-    { path: 'login', component: LoginComponent },
+    { path: '', redirectTo: 'courses', pathMatch: 'full' },
+    { path: 'courses', component: CoursesListComponent, data: { title: 'Courses' } },
+    { path: 'login', component: LoginComponent, data: { title: 'Login' } },
+    { path: 'add-course', component: AddCourseComponent, data: { title: 'Add course' } },
 ];
 
 @NgModule({
@@ -21,7 +24,7 @@ const appRoutes: Routes = [
         ContainersModule,
         ComponentsModule,
         AuthModule,
-        RouterModule.forRoot(appRoutes, { enableTracing: true }),
+        RouterModule.forRoot(appRoutes),
     ],
     providers: [AuthService],
     bootstrap: [AppComponent],

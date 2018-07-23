@@ -13,6 +13,7 @@ import { FilterCourseItemsPipe } from '@containers/courses/courses-list/filter-c
 import { OverlayModule, Overlay } from '@angular/cdk/overlay';
 import { DeleteItemModalComponent } from './shared/modals/delete-item-modal/delete-item-modal.component';
 import { ConfirmationModalService } from '@components/shared/confirmation-modal.service';
+import { AddCourseComponent } from './add-course/add-course.component';
 
 @NgModule({
     imports: [CommonModule, ComponentsModule, HttpClientModule, OverlayModule],
@@ -30,6 +31,7 @@ import { ConfirmationModalService } from '@components/shared/confirmation-modal.
         FormatMinutesPipe,
         FilterCourseItemsPipe,
         DeleteItemModalComponent,
+        AddCourseComponent,
     ],
     providers: [CourseService, FilterCourseItemsPipe, Overlay, ConfirmationModalService],
     entryComponents: [DeleteItemModalComponent],
