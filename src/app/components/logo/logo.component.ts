@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../containers/auth/shared/auth.service';
 
 @Component({
     selector: 'app-logo',
@@ -9,11 +10,15 @@ import { Router } from '@angular/router';
 export class LogoComponent implements OnInit {
     public logoName = 'Courses App';
 
-    constructor(private router: Router) {}
+    constructor(private authService: AuthService, private router: Router) {}
 
     ngOnInit() {}
 
     public onLogoClick() {
-        this.router.navigate(['courses']);
+        this.authService.isAuthenticated().subscribe(isAuthenticated => {
+            if (isAuthenticated) {
+                this.router.navigate(['courses']);
+            }
+        });
     }
 }
