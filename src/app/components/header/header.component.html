@@ -1,6 +1,6 @@
 <header class="header">
     <app-logo></app-logo>
     <div class="header__user">
-        <app-button *ngIf="authService.isAuthenticated()" (click)="onLogoutClick()" size="l" icon="exit_to_app" color="red" label="Log off"></app-button>
+        <app-button *ngIf="isAuthenticated" (click)="onLogoutClick()" size="l" icon="exit_to_app" color="red" label="Log off"></app-button>
     </div>
 </header>
