@@ -7,15 +7,19 @@ import { newEvent } from '../../../testing';
 import { InputComponent } from '@components/input/input.component';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '@components/button/button.component';
+import { Router } from '@angular/router';
 
 describe('CoursesToolboxComponent', () => {
     let component: CoursesToolboxComponent;
     let fixture: ComponentFixture<CoursesToolboxComponent>;
 
     beforeEach(async(() => {
+        const routerSpy = jasmine.createSpyObj('Router', ['navite']);
+
         TestBed.configureTestingModule({
             declarations: [InputComponent, ButtonComponent, CoursesToolboxComponent],
             imports: [FormsModule],
+            providers: [{ provide: Router, useValue: routerSpy }],
         }).compileComponents();
     }));
 
