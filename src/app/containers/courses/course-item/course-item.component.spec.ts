@@ -39,7 +39,7 @@ describe('CourseItemComponent', () => {
         testCourse.title = testCourse.title.toUpperCase();
         component = fixture.componentInstance;
         fixture.detectChanges();
-        courseItemDe = fixture.debugElement.query(By.css('.course'));
+        courseItemDe = fixture.debugElement.query(By.css('.course__info'));
     });
 
     it('should create', () => {

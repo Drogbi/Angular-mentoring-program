@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LogoComponent } from '@components/logo/logo.component';
+import { Router } from '@angular/router';
 
 describe('LogoComponent', () => {
     let component: LogoComponent;
@@ -8,8 +9,11 @@ describe('LogoComponent', () => {
     let logoNameEl: HTMLElement;
 
     beforeEach(async(() => {
+        const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+
         TestBed.configureTestingModule({
             declarations: [LogoComponent],
+            providers: [{ provide: Router, useValue: routerSpy }],
         }).compileComponents();
     }));
 
