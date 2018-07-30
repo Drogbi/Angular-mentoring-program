@@ -17,6 +17,8 @@ describe('BreadcrumbsComponent', () => {
     }));
 
     beforeEach(() => {
+        const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+
         fixture = TestBed.createComponent(BreadcrumbsComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();

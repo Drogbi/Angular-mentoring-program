@@ -1,9 +1,17 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    Input,
+    Output,
+    EventEmitter,
+    ChangeDetectionStrategy,
+} from '@angular/core';
 
 @Component({
     selector: 'app-text-area',
     templateUrl: './text-area.component.html',
     styleUrls: ['./text-area.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextAreaComponent implements OnInit {
     @Input() public value: string;

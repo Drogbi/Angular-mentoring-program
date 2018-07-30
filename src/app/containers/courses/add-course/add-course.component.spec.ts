@@ -10,7 +10,8 @@ describe('AddCourseComponent', () => {
     let fixture: ComponentFixture<AddCourseComponent>;
 
     beforeEach(async(() => {
-        const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+        const routerSpy = jasmine.createSpyObj('Router', ['navite']);
+
         TestBed.configureTestingModule({
             declarations: [AddCourseComponent, FormatMinutesPipe],
             schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -10,7 +10,6 @@ describe('LogoComponent', () => {
 
     beforeEach(async(() => {
         const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
-
         TestBed.configureTestingModule({
             declarations: [LogoComponent],
             providers: [{ provide: Router, useValue: routerSpy }],

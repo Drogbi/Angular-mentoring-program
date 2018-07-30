@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TextAreaComponent } from './text-area.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '../../../../node_modules/@angular/forms';
 
 describe('TextAreaComponent', () => {
     let component: TextAreaComponent;
@@ -11,6 +11,7 @@ describe('TextAreaComponent', () => {
         TestBed.configureTestingModule({
             imports: [FormsModule],
             declarations: [TextAreaComponent],
+            imports: [FormsModule],
         }).compileComponents();
     }));
 

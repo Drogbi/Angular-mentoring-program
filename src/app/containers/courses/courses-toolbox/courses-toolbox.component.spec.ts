@@ -14,7 +14,8 @@ describe('CoursesToolboxComponent', () => {
     let fixture: ComponentFixture<CoursesToolboxComponent>;
 
     beforeEach(async(() => {
-        const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+        const routerSpy = jasmine.createSpyObj('Router', ['navite']);
+
         TestBed.configureTestingModule({
             declarations: [InputComponent, ButtonComponent, CoursesToolboxComponent],
             imports: [FormsModule],
