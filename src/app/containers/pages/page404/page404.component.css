@@ -1,0 +1,6 @@
+.page404 {
+    background-image: url('assets/images/404.gif');
+    height: calc(100% - 100px);
+    background-repeat: no-repeat;
+    background-position: center;
+}

@@ -1,0 +1,26 @@
+<div class="edit-course__container">
+    <div class="edit-course__form">
+        <app-labeled-input class="form__form-item" label="Title">
+            <app-input (onchange)="onTitleInput($event)" size="l" placeholder="Enter course title"></app-input>
+        </app-labeled-input>
+        <app-labeled-input class="form__form-item" label="Description">
+            <app-text-area (onchange)="onDescriptionInput($event)" rows="5" placeholder="Enter course title" label="title"></app-text-area>
+        </app-labeled-input>
+        <app-labeled-input class="form__form-item" label="Date">
+            <app-input (onchange)="onDateInput($event)" size="l" placeholder="Enter course title"></app-input>
+        </app-labeled-input>
+        <div class="form__form-item form__duration">
+            <app-labeled-input class="duration__duration-input" label="Duration">
+                <app-input (onchange)="onDurationInput($event)" type="number" size="l" placeholder="Enter course title"></app-input>
+            </app-labeled-input>
+            <div class="duration__formatted-duration">{{ duratoin | formatMinutes }}</div>
+        </div>
+        <app-labeled-input class="form__form-item" label="Authors">
+            <app-input (onchange)="onAuthorsInput($event)" size="l" placeholder="Enter course title"></app-input>
+        </app-labeled-input>
+        <div class="button-group">
+            <app-button label="Save" class="button-group__save-button" color="green" size="l"></app-button>
+            <app-button (click)="onCancelClick()" label="Cancel" color="red" size="l"></app-button>
+        </div>
+    </div>
+</div>

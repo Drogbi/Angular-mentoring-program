@@ -14,6 +14,7 @@ let courses = [
             'perceived instantly. Advantages entreaties mr he apartments',
         durationMin: 30,
         topRated: true,
+        authors: 'Ivan Padabed',
     },
     {
         id: 1,
@@ -30,6 +31,7 @@ let courses = [
             'perceived instantly. Advantages entreaties mr he apartments. Small for ask shade water manor think men begin.',
         durationMin: 33,
         topRated: false,
+        authors: 'Ivan Padabed',
     },
     {
         id: 2,
@@ -42,6 +44,7 @@ let courses = [
             'perceived instantly. Advantages entreaties mr he apartments',
         durationMin: 60,
         topRated: false,
+        authors: 'Ivan Padabed',
     },
     {
         id: 3,
@@ -54,6 +57,7 @@ let courses = [
             'perceived instantly. Advantages entreaties mr he apartments. Small for ask shade water manor think men begin.',
         durationMin: 132,
         topRated: true,
+        authors: 'Ivan Padabed',
     },
 ];
 
@@ -90,7 +94,7 @@ export class CourseService {
         }
     }
 
-    getCourseById(id: number) {
+    getCourseById(id: number): Observable<Course> {
         return of<Course>(courses.find(value => value.id === id));
     }
 }

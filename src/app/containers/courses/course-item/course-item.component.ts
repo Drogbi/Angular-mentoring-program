@@ -9,6 +9,7 @@ import {
 import { ConfirmationModalService } from '@components/shared/confirmation-modal.service';
 import { Course } from '@containers/courses/shared/course.model';
 import { DeleteItemModalComponent } from '@containers/courses/shared/modals/delete-item-modal/delete-item-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-course-item',
@@ -20,7 +21,10 @@ export class CourseItemComponent implements OnInit {
     @Input() course: Course;
     @Output() deleted = new EventEmitter<Course>();
 
-    constructor(private confirmationModalService: ConfirmationModalService) {
+    constructor(
+        private confirmationModalService: ConfirmationModalService,
+        private router: Router
+    ) {
         this.course = {} as Course;
     }
 
@@ -33,5 +37,9 @@ export class CourseItemComponent implements OnInit {
             }
             this.confirmationModalService.close();
         });
+    }
+
+    public onEditClick(): void {
+        this.router.navigate(['/courses', this.course.id]);
     }
 }
