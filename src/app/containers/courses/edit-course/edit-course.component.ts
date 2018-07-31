@@ -64,4 +64,9 @@ export class EditCourseComponent implements OnInit {
     public onCancelClick() {
         this.router.navigate(['courses']);
     }
+
+    public onSaveClick() {
+        console.log('saving...');
+        this.router.navigate(['courses']);
+    }
 }
