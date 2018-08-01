@@ -25,7 +25,7 @@ const appRoutes: Routes = [
     {
         path: 'courses/:id',
         component: EditCourseComponent,
-        data: { title: 'Courses/:id' },
+        data: { title: 'Courses/' },
         canActivate: [CanActivateGuard],
     },
     { path: 'login', component: LoginComponent, data: { title: 'Login' } },
