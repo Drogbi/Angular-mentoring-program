@@ -20,7 +20,6 @@ export class BreadcrumbsComponent implements OnInit {
     ngOnInit() {
         this.router.events.subscribe(event => {
             if (event instanceof ActivationEnd) {
-                console.log(event);
                 this.path = event.snapshot.data.title;
 
                 // Details
