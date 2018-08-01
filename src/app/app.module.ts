@@ -11,13 +11,29 @@ import { AuthService } from './containers/auth/shared/auth.service';
 import { AddCourseComponent } from '@containers/courses/add-course/add-course.component';
 import { Page404Component } from './containers/pages/page404/page404.component';
 import { EditCourseComponent } from '@containers/courses/edit-course/edit-course.component';
+import { CanActivateGuard } from './containers/shared/can-activate.guard';
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: 'courses', pathMatch: 'full' },
-    { path: 'courses', component: CoursesListComponent, data: { title: 'Courses' } },
-    { path: 'courses/:id', component: EditCourseComponent },
+    { path: '', redirectTo: 'courses', pathMatch: 'full', canActivate: [CanActivateGuard] },
+    {
+        path: 'courses',
+        component: CoursesListComponent,
+        data: { title: 'Courses' },
+        canActivate: [CanActivateGuard],
+    },
+    {
+        path: 'courses/:id',
+        component: EditCourseComponent,
+        data: { title: 'Courses/:id' },
+        canActivate: [CanActivateGuard],
+    },
     { path: 'login', component: LoginComponent, data: { title: 'Login' } },
-    { path: 'add-course', component: AddCourseComponent, data: { title: 'Add course' } },
+    {
+        path: 'add-course',
+        component: AddCourseComponent,
+        data: { title: 'Add course' },
+        canActivate: [CanActivateGuard],
+    },
     { path: '**', component: Page404Component },
 ];
 
