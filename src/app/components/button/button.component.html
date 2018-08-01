@@ -1,4 +1,4 @@
-<div (click)="click"  [ngClass]="currentClasses" class="button">
+<div  (click)="click"  [ngClass]="currentClasses" class="button">
     <i *ngIf="icon" class="material-icons button__icon">{{icon}}</i>
     <div *ngIf="icon && label" class="button__spacer"></div>
     {{label}}

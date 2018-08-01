@@ -12,6 +12,7 @@ import { AddCourseComponent } from '@containers/courses/add-course/add-course.co
 import { Page404Component } from './containers/pages/page404/page404.component';
 import { EditCourseComponent } from '@containers/courses/edit-course/edit-course.component';
 import { CanActivateGuard } from './containers/shared/can-activate.guard';
+import { MatButtonModule } from '@angular/material';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'courses', pathMatch: 'full', canActivate: [CanActivateGuard] },
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
         ContainersModule,
         ComponentsModule,
         AuthModule,
+        MatButtonModule,
         RouterModule.forRoot(appRoutes),
     ],
     providers: [AuthService],

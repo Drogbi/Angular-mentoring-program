@@ -1,5 +1,5 @@
 <div class="add-course__container">
-    <div class="add-course__form">
+    <form class="add-course__form">
         <app-labeled-input class="form__form-item" label="Title">
             <app-input (onchange)="onTitleInput($event)" size="l" placeholder="Enter course title"></app-input>
         </app-labeled-input>
@@ -19,8 +19,8 @@
             <app-input (onchange)="onAuthorsInput($event)" size="l" placeholder="Enter course title"></app-input>
         </app-labeled-input>
         <div class="button-group">
-            <app-button label="Save" class="button-group__save-button" color="green" size="l"></app-button>
+            <input type="submit" value="Save" class="button-group__save-button">
             <app-button (click)="onCancelClick()" label="Cancel" color="red" size="l"></app-button>
         </div>
-    </div>
+    </form>
 </div>
