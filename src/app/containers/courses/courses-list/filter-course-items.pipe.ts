@@ -5,7 +5,7 @@ import { Course } from '@containers/courses/shared/course.model';
 export class FilterCourseItemsPipe implements PipeTransform {
     transform(courses: Course[], filterTitle: string) {
         return courses.filter(course =>
-            course.title.toLowerCase().includes(filterTitle.toLowerCase())
+            course.name.toLowerCase().includes(filterTitle.toLowerCase())
         );
     }
 }

@@ -24,19 +24,19 @@ describe('CoursesListComponent', () => {
         testCourses = [
             {
                 id: 11,
-                creationDate: new Date(),
+                date: new Date(),
                 description: 'Text',
                 durationMin: 60,
-                title: 'Awesome C# course',
-                topRated: false,
+                name: 'Awesome C# course',
+                isTopRated: false,
             },
             {
                 id: 12,
-                creationDate: new Date(),
+                date: new Date(),
                 description: 'Text',
                 durationMin: 60,
-                title: 'Awesome course',
-                topRated: true,
+                name: 'Awesome course',
+                isTopRated: true,
             },
         ];
     });

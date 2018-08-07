@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CourseService } from '@containers/courses/shared/course.service';
+import { Author } from '@containers/courses/shared/course.model';
 
 @Component({
     selector: 'app-add-course',
@@ -13,7 +15,7 @@ export class AddCourseComponent implements OnInit {
     public duratoin: number;
     public authors: string;
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private service: CourseService) {
         this.title = '';
         this.description = '';
         this.date = '';
@@ -43,6 +45,32 @@ export class AddCourseComponent implements OnInit {
 
     public onCancelClick() {
         this.router.navigate(['courses']);
+    }
+
+    private getAuthors(): Author[] {
+        return this.authors.split(',').map(value => {
+            const author = value.split(' ');
+            return {
+                firstName: author[0],
+                lastName: author[1],
+            };
+        });
+    }
+
+    public onSaveClick(event: Event) {
+        event.preventDefault();
+        this.service
+            .createCourse({
+                name: this.title,
+                authors: this.getAuthors(),
+                date: this.date,
+                description: this.description,
+                isTopRated: false,
+                length: this.duratoin.toString(),
+            })
+            .subscribe(() => {
+                this.router.navigate(['courses']);
+            });
     }
 
     ngOnInit() {}

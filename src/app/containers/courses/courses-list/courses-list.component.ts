@@ -9,31 +9,36 @@ import { CourseService } from '@containers/courses/shared/course.service';
     styleUrls: ['./courses-list.component.css'],
 })
 export class CoursesListComponent {
+    count: number;
     searchValue: string;
-    courses: Course[];
+    courses: Course[] = [];
     constructor(private service: CourseService, public filterCourseItems: FilterCourseItemsPipe) {
+        this.count = 4;
         this.searchValue = '';
-        this.service.getCourses().subscribe(courses => {
+        this.service.getCourses('0', this.count.toString()).subscribe(courses => {
             this.courses = courses;
         });
     }
 
     public onDeleted(course: Course): void {
         this.service.deleteCourse(course.id).subscribe((data: Course) => {
-            this.courses = this.courses.filter(item => item.id !== data.id);
+            this.service.getCourses('0', this.count.toString()).subscribe(courses => {
+                this.courses = courses;
+            });
         });
     }
 
     public onLoadMoreClick(): void {
-        console.log('Loading More Courses...');
-    }
-
-    public onAddCourseClick(): void {
-        console.log('Course added...');
+        this.count += 4;
+        this.service.getCourses('0', this.count.toString()).subscribe(courses => {
+            this.courses = courses;
+        });
     }
 
     public onSearchClicked(value: string) {
         this.searchValue = value;
-        this.filterCourseItems.transform(this.courses, this.searchValue);
+        this.service.searchCourses(value).subscribe(courses => {
+            this.courses = courses;
+        });
     }
 }

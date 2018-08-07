@@ -1,24 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable, from, of } from 'rxjs';
+import { User } from './user.model';
+import { HttpClient } from '@angular/common/http';
+
+const baseUrl = 'http://localhost:3004/users';
 
 @Injectable({
     providedIn: 'root',
 })
 export class AuthService {
-    constructor() {}
+    constructor(private http: HttpClient) {}
 
-    public login(login: string, password: string): Observable<string> {
-        const token = `token${login}${password}`;
-        localStorage.setItem('login', login);
-        localStorage.setItem('password', password);
-        localStorage.setItem('token', token);
-
-        return of<string>(token);
+    public login(login: string, password: string): Observable<User> {
+        return this.http.get<User>(`${baseUrl}`, { params: { login, password } });
     }
 
     public logout(): void {
-        localStorage.removeItem('login');
-        localStorage.removeItem('password');
         localStorage.removeItem('token');
     }
 
@@ -26,7 +23,9 @@ export class AuthService {
         return of<boolean>(!!localStorage.getItem('token'));
     }
 
-    public getUserInfo(): Observable<string> {
-        return of<string>(localStorage.getItem('login'));
+    public getUserInfo(): Observable<User> {
+        return this.http.get<User>(`${baseUrl}`, {
+            params: { fakeToken: localStorage.getItem('token') },
+        });
     }
 }
