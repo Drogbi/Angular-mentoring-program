@@ -24,8 +24,8 @@ export class BreadcrumbsComponent implements OnInit {
 
                 // Details
                 if (event.snapshot.params.id) {
-                    this.courseService.getCourseById(+event.snapshot.params.id).subscribe(item => {
-                        this.path += item.title;
+                    this.courseService.getCourseById(event.snapshot.params.id).subscribe(item => {
+                        this.path += item.name;
                     });
                 }
             }

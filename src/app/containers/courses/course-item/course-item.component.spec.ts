@@ -30,13 +30,13 @@ describe('CourseItemComponent', () => {
         formatMinutesPipe = new FormatMinutesPipe();
         testCourse = {
             id: 12,
-            creationDate: new Date(),
+            date: new Date(),
             description: 'Text',
             durationMin: 60,
-            title: 'Awesome course',
-            topRated: true,
+            name: 'Awesome course',
+            isTopRated: true,
         };
-        testCourse.title = testCourse.title.toUpperCase();
+        testCourse.name = testCourse.name.toUpperCase();
         component = fixture.componentInstance;
         fixture.detectChanges();
         courseItemDe = fixture.debugElement.query(By.css('.course__info'));
@@ -50,7 +50,7 @@ describe('CourseItemComponent', () => {
         component.course = testCourse;
         fixture.detectChanges();
         expect(fixture.nativeElement.querySelector('.course__title').textContent).toContain(
-            testCourse.title
+            testCourse.name
         );
     });
 
@@ -69,7 +69,7 @@ describe('CourseItemComponent', () => {
         const courseDurationEl = fixture.debugElement.nativeElement.querySelector(
             '.course__creation-date'
         );
-        expect(courseDurationEl.textContent).toContain(datePipe.transform(testCourse.creationDate));
+        expect(courseDurationEl.textContent).toContain(datePipe.transform(testCourse.date));
     });
 
     it('should create top rated icon if course is top rated', () => {

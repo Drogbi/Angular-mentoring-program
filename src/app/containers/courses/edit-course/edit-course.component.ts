@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { CourseService } from '@containers/courses/shared/course.service';
 import { switchMap } from 'rxjs/operators';
-import { Course } from '@containers/courses/shared/course.model';
+import { Author, Course } from '@containers/courses/shared/course.model';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
     styleUrls: ['./edit-course.component.css'],
 })
 export class EditCourseComponent implements OnInit {
+    private id: string;
     public title: string;
     public description: string;
     public date: string;
@@ -22,6 +23,7 @@ export class EditCourseComponent implements OnInit {
         private router: Router,
         private service: CourseService
     ) {
+        this.id = null;
         this.title = '';
         this.description = '';
         this.date = '';
@@ -31,14 +33,33 @@ export class EditCourseComponent implements OnInit {
 
     ngOnInit() {
         this.route.paramMap
-            .pipe(switchMap((params: ParamMap) => this.service.getCourseById(+params.get('id'))))
-            .subscribe(course => {
-                this.title = course.title;
+            .pipe(switchMap((params: ParamMap) => this.service.getCourseById(params.get('id'))))
+            .subscribe((course: Course) => {
+                this.id = course.id;
+                this.title = course.name;
                 this.description = course.description;
-                this.date = course.creationDate.toDateString();
-                this.authors = course.authors;
-                this.duration = course.durationMin;
+                this.date = course.date;
+                this.authors = this.authorsToString(course.authors);
+                this.duration = +course.length;
             });
+    }
+
+    private authorsToString(authors: Author[]): string {
+        return authors
+            .reduce((accum, value) => {
+                return `${accum}, ${value.firstName} ${value.lastName}`;
+            }, '')
+            .slice(1);
+    }
+
+    private getAuthors(): Author[] {
+        return this.authors.split(',').map(value => {
+            const author = value.trim().split(' ');
+            return {
+                firstName: author[0],
+                lastName: author[1],
+            };
+        });
     }
 
     public onTitleInput(value: string) {
@@ -62,11 +83,22 @@ export class EditCourseComponent implements OnInit {
     }
 
     public onCancelClick() {
-        this.router.navigate(['courses']);
+        this.router.navigate(['/courses']);
     }
 
-    public onSaveClick() {
-        console.log('saving...');
-        this.router.navigate(['courses']);
+    public onSaveClick(event: Event) {
+        event.preventDefault();
+        this.service
+            .updateCourse(this.id, {
+                name: this.title,
+                authors: this.getAuthors(),
+                date: this.date,
+                description: this.description,
+                isTopRated: false,
+                length: this.duration.toString(),
+            })
+            .subscribe(() => {
+                this.router.navigate(['/courses']);
+            });
     }
 }

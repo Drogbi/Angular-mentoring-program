@@ -19,7 +19,7 @@
             <app-input (onchange)="onAuthorsInput($event)" size="l" placeholder="Enter course title"></app-input>
         </app-labeled-input>
         <div class="button-group">
-            <input type="submit" value="Save" class="button-group__save-button">
+            <input (click)="onSaveClick($event)" type="submit" value="Save" class="button-group__save-button">
             <app-button (click)="onCancelClick()" label="Cancel" color="red" size="l"></app-button>
         </div>
     </form>

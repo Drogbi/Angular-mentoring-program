@@ -26,9 +26,11 @@ export class LoginComponent implements OnInit {
     }
 
     public onLoginClick(): void {
-        if (this.login && this.password) {
-            this.authService.login(this.login, this.password);
-            this.router.navigate(['courses']);
-        }
+        this.authService.login(this.login, this.password).subscribe(value => {
+            if (value[0]) {
+                localStorage.setItem('token', value[0].fakeToken);
+                this.router.navigate(['courses']);
+            }
+        });
     }
 }

@@ -1,16 +1,16 @@
 <div class="course__info">
     <div class="course__info-header">
         <div class="course__title-row">
-            <h2 class="course__title">{{course.title | uppercase}}</h2>
-            <i title="Top rated" *ngIf="course.topRated" class="material-icons course__top-rated-icon">star</i>
+            <h2 class="course__title">{{course.name | uppercase}}</h2>
+            <i title="Top rated" *ngIf="course.isTopRated" class="material-icons course__top-rated-icon">star</i>
             <div class="course__button-group">
                 <app-button (click)='onEditClick()' class="button-group__button-item button-group__edit" icon="edit" shape="round"></app-button>
                 <app-button class="button-group__button-item button-group__delete" icon="delete" shape="round" (click)="deleteCourse()"></app-button>
             </div>
         </div>
         <div class="course__time-info">
-            <div class="course__duration">{{course.durationMin | formatMinutes}}</div>
-            <div class="course__creation-date">{{course.creationDate | date}}</div>
+            <div class="course__duration">{{course.length | formatMinutes}}</div>
+            <div class="course__creation-date">{{course.date | date}}</div>
         </div>
     </div>
 
