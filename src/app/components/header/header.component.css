@@ -12,9 +12,8 @@
     align-items: center;
 }
 
-.header__user-name {
+.user__name {
     color: white;
     font-size: 24px;
     margin: 0 20px;
-
 }

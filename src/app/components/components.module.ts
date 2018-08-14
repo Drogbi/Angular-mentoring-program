@@ -9,6 +9,8 @@ import { InputComponent } from '@components/input/input.component';
 import { LogoComponent } from '@components/logo/logo.component';
 import { LabeledInputComponent } from './labeled-input/labeled-input.component';
 import { TextAreaComponent } from './text-area/text-area.component';
+import { BlockerComponent } from './blocker/blocker.component';
+import { DeleteItemModalComponent } from '@containers/courses/shared/modals/delete-item-modal/delete-item-modal.component';
 
 @NgModule({
     imports: [CommonModule, FormsModule],
@@ -31,6 +33,8 @@ import { TextAreaComponent } from './text-area/text-area.component';
         LogoComponent,
         LabeledInputComponent,
         TextAreaComponent,
+        BlockerComponent,
     ],
+    entryComponents: [BlockerComponent],
 })
 export class ComponentsModule {}

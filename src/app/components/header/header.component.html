@@ -1,6 +1,7 @@
 <header class="header">
     <app-logo></app-logo>
     <div class="header__user">
+        <div class="user__name">{{ user?.login }}</div>
         <app-button *ngIf="isAuthenticated" (click)="onLogoutClick()" size="l" icon="exit_to_app" color="red" label="Log off"></app-button>
     </div>
 </header>

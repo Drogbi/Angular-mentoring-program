@@ -36,3 +36,9 @@
     }
 }
 
+
+@media (max-width: 535px) {
+    .logo__name {
+        display: none;
+    }
+}

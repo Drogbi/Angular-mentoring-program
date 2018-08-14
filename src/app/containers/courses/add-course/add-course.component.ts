@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CourseService } from '@containers/courses/shared/course.service';
 import { Author } from '@containers/courses/shared/course.model';
+import { BlockerService } from '@components/shared/blocker.service';
 
 @Component({
     selector: 'app-add-course',
@@ -15,7 +16,11 @@ export class AddCourseComponent implements OnInit {
     public duratoin: number;
     public authors: string;
 
-    constructor(private router: Router, private service: CourseService) {
+    constructor(
+        private blockerService: BlockerService,
+        private router: Router,
+        private service: CourseService
+    ) {
         this.title = '';
         this.description = '';
         this.date = '';
@@ -59,6 +64,7 @@ export class AddCourseComponent implements OnInit {
 
     public onSaveClick(event: Event) {
         event.preventDefault();
+        this.blockerService.show(true);
         this.service
             .createCourse({
                 name: this.title,
@@ -69,6 +75,7 @@ export class AddCourseComponent implements OnInit {
                 length: this.duratoin.toString(),
             })
             .subscribe(() => {
+                this.blockerService.show(false);
                 this.router.navigate(['courses']);
             });
     }

@@ -1,5 +1,14 @@
-import { Component, HostBinding, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+    Component,
+    HostBinding,
+    OnInit,
+    Output,
+    EventEmitter,
+    OnChanges,
+    Input,
+} from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
     selector: 'app-courses-toolbox',
@@ -7,22 +16,15 @@ import { Router } from '@angular/router';
     styleUrls: ['./courses-toolbox.component.css'],
 })
 export class CoursesToolboxComponent implements OnInit {
-    public searchValue: string;
-    @Output() searchClicked: EventEmitter<string> = new EventEmitter<string>();
+    @Input() searchValue: Subject<string>;
+    @Output() searchChange: EventEmitter<string> = new EventEmitter<string>();
 
-    constructor(private router: Router) {
-        this.searchValue = '';
-    }
+    constructor(private router: Router) {}
 
     ngOnInit() {}
 
     public onSearchValueInput(value: string) {
-        this.searchValue = value;
-    }
-
-    public onSearchClick() {
-        this.searchClicked.emit(this.searchValue);
-        console.log(`Searching for: ${this.searchValue}...`);
+        this.searchChange.emit(value);
     }
 
     public onAddCourseClick() {

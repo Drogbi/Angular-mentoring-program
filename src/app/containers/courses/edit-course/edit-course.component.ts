@@ -4,6 +4,7 @@ import { CourseService } from '@containers/courses/shared/course.service';
 import { switchMap } from 'rxjs/operators';
 import { Author, Course } from '@containers/courses/shared/course.model';
 import { Observable } from 'rxjs';
+import { BlockerService } from '@components/shared/blocker.service';
 
 @Component({
     selector: 'app-edit-course',
@@ -21,7 +22,8 @@ export class EditCourseComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private service: CourseService
+        private service: CourseService,
+        private blockerService: BlockerService
     ) {
         this.id = null;
         this.title = '';
@@ -32,6 +34,7 @@ export class EditCourseComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.blockerService.show(true);
         this.route.paramMap
             .pipe(switchMap((params: ParamMap) => this.service.getCourseById(params.get('id'))))
             .subscribe((course: Course) => {
@@ -41,6 +44,7 @@ export class EditCourseComponent implements OnInit {
                 this.date = course.date;
                 this.authors = this.authorsToString(course.authors);
                 this.duration = +course.length;
+                this.blockerService.show(false);
             });
     }
 
@@ -88,6 +92,7 @@ export class EditCourseComponent implements OnInit {
 
     public onSaveClick(event: Event) {
         event.preventDefault();
+        this.blockerService.show(true);
         this.service
             .updateCourse(this.id, {
                 name: this.title,
@@ -98,6 +103,7 @@ export class EditCourseComponent implements OnInit {
                 length: this.duration.toString(),
             })
             .subscribe(() => {
+                this.blockerService.show(false);
                 this.router.navigate(['/courses']);
             });
     }

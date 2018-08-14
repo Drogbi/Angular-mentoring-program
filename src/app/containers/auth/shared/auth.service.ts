@@ -23,8 +23,8 @@ export class AuthService {
         return of<boolean>(!!localStorage.getItem('token'));
     }
 
-    public getUserInfo(): Observable<User> {
-        return this.http.get<User>(`${baseUrl}`, {
+    public getUserInfo(): Observable<User[]> {
+        return this.http.get<User[]>(`${baseUrl}`, {
             params: { fakeToken: localStorage.getItem('token') },
         });
     }
