@@ -3,6 +3,8 @@ import { AuthService } from '../../containers/auth/shared/auth.service';
 import { Router, ActivationEnd } from '@angular/router';
 import { User } from '../../containers/auth/shared/user.model';
 import { first, take, flatMap } from 'rxjs/operators';
+import { select, Store } from '@ngrx/store';
+import { State as AuthState } from '../../containers/auth/auth.reducer';
 
 @Component({
     selector: 'app-header',
@@ -10,7 +12,11 @@ import { first, take, flatMap } from 'rxjs/operators';
     styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-    constructor(public authService: AuthService, private router: Router) {}
+    constructor(
+        public authService: AuthService,
+        private router: Router,
+        private store: Store<AuthState>
+    ) {}
 
     public isAuthenticated: boolean;
     public user: User;
@@ -19,21 +25,15 @@ export class HeaderComponent implements OnInit {
         this.router.events.subscribe(event => {
             if (event instanceof ActivationEnd) {
                 this.authService.isAuthenticated().subscribe(value => {
-                    this.isAuthenticated = value;
+                    this.store.select('auth').subscribe(auth => {
+                        this.isAuthenticated = auth.user[0].loggedIn;
+                    });
                 });
             }
         });
-        this.authService
-            .getUserInfo()
-            .pipe(
-                flatMap(value => value),
-                first()
-            )
-
-            .subscribe(user => {
-                console.log(user);
-                this.user = user;
-            });
+        this.store.select('auth').subscribe(auth => {
+            this.user = auth.user[0];
+        });
     }
 
     public onLogoutClick(): void {

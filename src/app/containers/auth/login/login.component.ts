@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '../../../../../node_modules/@angular/router';
+import { State as AuthState } from '../auth.reducer';
+import { Store } from '@ngrx/store';
+import { Login } from '../actions';
+
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -10,7 +14,11 @@ export class LoginComponent implements OnInit {
     public login: string;
     public password: string;
 
-    constructor(private authService: AuthService, private router: Router) {
+    constructor(
+        private authService: AuthService,
+        private router: Router,
+        private store: Store<AuthState>
+    ) {
         this.login = '';
         this.password = '';
     }
@@ -26,11 +34,6 @@ export class LoginComponent implements OnInit {
     }
 
     public onLoginClick(): void {
-        this.authService.login(this.login, this.password).subscribe(value => {
-            if (value[0]) {
-                localStorage.setItem('token', value[0].fakeToken);
-                this.router.navigate(['courses']);
-            }
-        });
+        this.store.dispatch(new Login({ login: this.login, password: this.password }));
     }
 }

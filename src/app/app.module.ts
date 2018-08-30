@@ -13,6 +13,11 @@ import { Page404Component } from './containers/pages/page404/page404.component';
 import { EditCourseComponent } from '@containers/courses/edit-course/edit-course.component';
 import { CanActivateGuard } from './containers/shared/can-activate.guard';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { authReducer } from './containers/auth/auth.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './containers/auth/auth.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'courses', pathMatch: 'full', canActivate: [CanActivateGuard] },
@@ -47,6 +52,11 @@ const appRoutes: Routes = [
         AuthModule,
         HttpClientModule,
         RouterModule.forRoot(appRoutes),
+        StoreModule.forRoot({ auth: authReducer }),
+        EffectsModule.forRoot([AuthEffects]),
+        StoreDevtoolsModule.instrument({
+            maxAge: 5,
+        }),
     ],
     providers: [AuthService],
     bootstrap: [AppComponent],
