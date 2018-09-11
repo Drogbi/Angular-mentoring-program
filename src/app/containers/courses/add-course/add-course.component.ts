@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { CourseService } from '@containers/courses/shared/course.service';
 import { Author } from '@containers/courses/shared/course.model';
 import { BlockerService } from '@components/shared/blocker.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-add-course',
@@ -10,50 +12,22 @@ import { BlockerService } from '@components/shared/blocker.service';
     styleUrls: ['./add-course.component.css'],
 })
 export class AddCourseComponent implements OnInit {
-    public title: string;
-    public description: string;
-    public date: string;
-    public duratoin: number;
-    public authors: string;
+    addCourseForm = new FormGroup({
+        title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+        description: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+        date: new FormControl('', [Validators.required]),
+        duration: new FormControl(0, [Validators.required]),
+        authors: new FormControl('', [Validators.required]),
+    });
 
     constructor(
         private blockerService: BlockerService,
         private router: Router,
         private service: CourseService
-    ) {
-        this.title = '';
-        this.description = '';
-        this.date = '';
-        this.duratoin = 0;
-        this.authors = '';
-    }
+    ) {}
 
-    public onTitleInput(value: string) {
-        this.title = value;
-    }
-
-    public onDescriptionInput(value: string) {
-        this.description = value;
-    }
-
-    public onDateInput(value: string) {
-        this.date = value;
-    }
-
-    public onDurationInput(value: number) {
-        this.duratoin = value;
-    }
-
-    public onAuthorsInput(value: string) {
-        this.authors = value;
-    }
-
-    public onCancelClick() {
-        this.router.navigate(['courses']);
-    }
-
-    private getAuthors(): Author[] {
-        return this.authors.split(',').map(value => {
+    private getAuthors(authors): Author[] {
+        return authors.split(',').map(value => {
             const author = value.split(' ');
             return {
                 firstName: author[0],
@@ -62,17 +36,19 @@ export class AddCourseComponent implements OnInit {
         });
     }
 
-    public onSaveClick(event: Event) {
+    onSubmit() {
+        const data = this.addCourseForm.value;
+
         event.preventDefault();
         this.blockerService.show(true);
         this.service
             .createCourse({
-                name: this.title,
-                authors: this.getAuthors(),
-                date: this.date,
-                description: this.description,
+                name: data.title,
+                authors: this.getAuthors(data.authors),
+                date: data.date,
+                description: data.description,
                 isTopRated: false,
-                length: this.duratoin.toString(),
+                length: data.duration.toString(),
             })
             .subscribe(() => {
                 this.blockerService.show(false);

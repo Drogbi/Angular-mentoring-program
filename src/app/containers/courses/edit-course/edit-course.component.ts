@@ -5,6 +5,7 @@ import { switchMap } from 'rxjs/operators';
 import { Author, Course } from '@containers/courses/shared/course.model';
 import { Observable } from 'rxjs';
 import { BlockerService } from '@components/shared/blocker.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-edit-course',
@@ -12,38 +13,43 @@ import { BlockerService } from '@components/shared/blocker.service';
     styleUrls: ['./edit-course.component.css'],
 })
 export class EditCourseComponent implements OnInit {
-    private id: string;
-    public title: string;
-    public description: string;
-    public date: string;
-    public duration: number;
-    public authors: string;
+    id: string;
+    editCourseForm = new FormGroup({
+        title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+        description: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+        date: new FormControl('', [Validators.required]),
+        duration: new FormControl(0, [Validators.required]),
+        authors: new FormControl('', [Validators.required]),
+    });
 
     constructor(
         private route: ActivatedRoute,
         private router: Router,
         private service: CourseService,
         private blockerService: BlockerService
-    ) {
-        this.id = null;
-        this.title = '';
-        this.description = '';
-        this.date = '';
-        this.duration = 0;
-        this.authors = '';
-    }
+    ) {}
 
     ngOnInit() {
         this.blockerService.show(true);
         this.route.paramMap
             .pipe(switchMap((params: ParamMap) => this.service.getCourseById(params.get('id'))))
             .subscribe((course: Course) => {
+                this.editCourseForm = new FormGroup({
+                    title: new FormControl(course.name, [
+                        Validators.required,
+                        Validators.maxLength(50),
+                    ]),
+                    description: new FormControl(course.description, [
+                        Validators.required,
+                        Validators.maxLength(500),
+                    ]),
+                    date: new FormControl(course.date, [Validators.required]),
+                    duration: new FormControl(+course.length, [Validators.required]),
+                    authors: new FormControl(this.authorsToString(course.authors), [
+                        Validators.required,
+                    ]),
+                });
                 this.id = course.id;
-                this.title = course.name;
-                this.description = course.description;
-                this.date = course.date;
-                this.authors = this.authorsToString(course.authors);
-                this.duration = +course.length;
                 this.blockerService.show(false);
             });
     }
@@ -56,8 +62,8 @@ export class EditCourseComponent implements OnInit {
             .slice(1);
     }
 
-    private getAuthors(): Author[] {
-        return this.authors.split(',').map(value => {
+    private getAuthors(authors): Author[] {
+        return authors.split(',').map(value => {
             const author = value.trim().split(' ');
             return {
                 firstName: author[0],
@@ -66,45 +72,27 @@ export class EditCourseComponent implements OnInit {
         });
     }
 
-    public onTitleInput(value: string) {
-        this.title = value;
-    }
-
-    public onDescriptionInput(value: string) {
-        this.description = value;
-    }
-
-    public onDateInput(value: string) {
-        this.date = value;
-    }
-
-    public onDurationInput(value: number) {
-        this.duration = value;
-    }
-
-    public onAuthorsInput(value: string) {
-        this.authors = value;
-    }
-
     public onCancelClick() {
         this.router.navigate(['/courses']);
     }
 
-    public onSaveClick(event: Event) {
+    onSubmit() {
+        const data = this.editCourseForm.value;
+
         event.preventDefault();
         this.blockerService.show(true);
         this.service
-            .updateCourse(this.id, {
-                name: this.title,
-                authors: this.getAuthors(),
-                date: this.date,
-                description: this.description,
+            .createCourse({
+                name: data.title,
+                authors: this.getAuthors(data.authors),
+                date: data.date,
+                description: data.description,
                 isTopRated: false,
-                length: this.duration.toString(),
+                length: data.duration.toString(),
             })
             .subscribe(() => {
                 this.blockerService.show(false);
-                this.router.navigate(['/courses']);
+                this.router.navigate(['courses']);
             });
     }
 }

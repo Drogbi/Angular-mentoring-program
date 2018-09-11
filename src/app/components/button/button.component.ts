@@ -20,6 +20,7 @@ export class ButtonComponent implements OnInit {
     @Input() icon: string;
     @Input() color: 'green' | 'light-blue' | 'red';
     @Output() click: EventEmitter<any> = new EventEmitter<any>();
+    @Input() type: string;
 
     currentClasses: Record<string, boolean>;
     constructor() {

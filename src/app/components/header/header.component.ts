@@ -31,9 +31,9 @@ export class HeaderComponent implements OnInit {
                 });
             }
         });
-        this.store.select('auth').subscribe(auth => {
-            this.user = auth.user[0];
-        });
+        // this.store.select('auth').subscribe(auth => {
+        //     this.user = auth.user[0];
+        // });
     }
 
     public onLogoutClick(): void {

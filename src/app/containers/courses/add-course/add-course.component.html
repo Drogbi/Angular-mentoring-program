@@ -1,26 +1,29 @@
 <div class="add-course__container">
-    <form class="add-course__form">
-        <app-labeled-input class="form__form-item" label="Title">
-            <app-input (onchange)="onTitleInput($event)" size="l" placeholder="Enter course title"></app-input>
-        </app-labeled-input>
-        <app-labeled-input class="form__form-item" label="Description">
-            <app-text-area (onchange)="onDescriptionInput($event)" rows="5" placeholder="Enter course title" label="title"></app-text-area>
-        </app-labeled-input>
-        <app-labeled-input class="form__form-item" label="Date">
-            <app-input (onchange)="onDateInput($event)" size="l" placeholder="Enter course title"></app-input>
-        </app-labeled-input>
+    <form (ngSubmit)="onSubmit()" [formGroup]="addCourseForm" class="add-course__form">
+        <mat-form-field>
+            <input formControlName="title" matInput placeholder="Title">
+        </mat-form-field>
+        <mat-form-field>
+            <textarea formControlName="description" matInput placeholder="Description"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <input formControlName="date" placeholder="Date" matInput [matDatepicker]="myDatepicker">
+            <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #myDatepicker></mat-datepicker>
+        </mat-form-field>
+
         <div class="form__form-item form__duration">
-            <app-labeled-input class="duration__duration-input" label="Duration">
-                <app-input (onchange)="onDurationInput($event)" type="number" size="l" placeholder="Enter course title"></app-input>
-            </app-labeled-input>
-            <div class="duration__formatted-duration">{{ duratoin | formatMinutes }}</div>
+            <mat-form-field>
+                <input type="number" formControlName="duration" matInput placeholder="Duration">
+            </mat-form-field>
+            <div class="duration__formatted-duration">{{ addCourseForm.value.duration | formatMinutes }}</div>
         </div>
-        <app-labeled-input class="form__form-item" label="Authors">
-            <app-input (onchange)="onAuthorsInput($event)" size="l" placeholder="Enter course title"></app-input>
-        </app-labeled-input>
+        <mat-form-field>
+            <input formControlName="authors" matInput placeholder="Authors">
+        </mat-form-field>
         <div class="button-group">
-            <input (click)="onSaveClick($event)" type="submit" value="Save" class="button-group__save-button">
-            <app-button (click)="onCancelClick()" label="Cancel" color="red" size="l"></app-button>
+            <button class="button-group__save-button" type="submit" mat-raised-button color="primary" [disabled]="!addCourseForm.valid">Save</button>
+            <button (click)="onCancelClick()" mat-raised-button color="warn">Cancel</button>
         </div>
     </form>
 </div>

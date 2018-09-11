@@ -18,6 +18,7 @@ import { authReducer } from './containers/auth/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './containers/auth/auth.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: 'courses', pathMatch: 'full', canActivate: [CanActivateGuard] },
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     declarations: [AppComponent],
     imports: [
         BrowserModule,
+        BrowserAnimationsModule,
         ContainersModule,
         ComponentsModule,
         AuthModule,

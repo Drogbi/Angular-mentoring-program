@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from '@components/button/button.component';
 import { BreadcrumbsComponent } from '@components/breadcrumbs/breadcrumbs.component';
 import { FooterComponent } from '@components/footer/footer.component';
@@ -13,7 +13,7 @@ import { BlockerComponent } from './blocker/blocker.component';
 import { DeleteItemModalComponent } from '@containers/courses/shared/modals/delete-item-modal/delete-item-modal.component';
 
 @NgModule({
-    imports: [CommonModule, FormsModule],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule],
     exports: [
         ButtonComponent,
         BreadcrumbsComponent,
@@ -24,6 +24,7 @@ import { DeleteItemModalComponent } from '@containers/courses/shared/modals/dele
         LabeledInputComponent,
         TextAreaComponent,
     ],
+    providers: [ReactiveFormsModule],
     declarations: [
         ButtonComponent,
         BreadcrumbsComponent,

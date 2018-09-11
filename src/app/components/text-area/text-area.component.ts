@@ -18,6 +18,7 @@ export class TextAreaComponent implements OnInit {
     @Input() public placeholder: string;
     @Output() onchange: EventEmitter<string> = new EventEmitter<string>();
     @Input() public rows: number;
+    @Input() public formControlName: string;
 
     constructor() {
         this.value = null;

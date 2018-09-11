@@ -15,9 +15,37 @@ import { DeleteItemModalComponent } from './shared/modals/delete-item-modal/dele
 import { ConfirmationModalService } from '@components/shared/confirmation-modal.service';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    DateAdapter,
+    MAT_DATE_FORMATS,
+} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+    COURSES_DATE_FORMATS,
+    CoursesDateAdapter,
+} from '@containers/courses/adapters/CoursesDateAdapter';
 
 @NgModule({
-    imports: [CommonModule, ComponentsModule, HttpClientModule, OverlayModule],
+    imports: [
+        CommonModule,
+        BrowserAnimationsModule,
+        ComponentsModule,
+        HttpClientModule,
+        OverlayModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+    ],
     exports: [
         CoursesListComponent,
         CoursesToolboxComponent,
@@ -35,7 +63,20 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
         AddCourseComponent,
         EditCourseComponent,
     ],
-    providers: [CourseService, FilterCourseItemsPipe, Overlay, ConfirmationModalService],
+    providers: [
+        CourseService,
+        FilterCourseItemsPipe,
+        Overlay,
+        ConfirmationModalService,
+        {
+            provide: DateAdapter,
+            useClass: CoursesDateAdapter,
+        },
+        {
+            provide: MAT_DATE_FORMATS,
+            useValue: COURSES_DATE_FORMATS,
+        },
+    ],
     entryComponents: [DeleteItemModalComponent],
 })
 export class CoursesModule {}
