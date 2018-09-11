@@ -36,6 +36,10 @@ export class AddCourseComponent implements OnInit {
         });
     }
 
+    public onCancelClick() {
+        this.router.navigate(['/courses']);
+    }
+
     onSubmit() {
         const data = this.addCourseForm.value;
 
